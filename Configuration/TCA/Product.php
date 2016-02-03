@@ -163,6 +163,12 @@ return array(
             'config' => array(
                 'type' => 'select',
                 'foreign_table' => 'tx_cadabra_domain_model_information',
+                'MM' => 'tx_cadabra_information_record_mm',
+                'MM_opposite_field' => 'records',
+                'MM_match_fields' => array(
+                    'tablenames' => 'tx_cadabra_domain_model_product',
+                    'fieldname' => 'information',
+                ),
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
@@ -174,7 +180,12 @@ return array(
             'config' => array(
                 'type' => 'select',
                 'foreign_table' => 'tx_cadabra_domain_model_attribute',
-                'MM' => 'tx_cadabra_domain_model_product_attribute_mm',
+                'MM' => 'tx_cadabra_attribute_record_mm',
+                'MM_opposite_field' => 'records',
+                'MM_match_fields' => array(
+                    'tablenames' => 'tx_cadabra_domain_model_product',
+                    'fieldname' => 'attributes',
+                ),
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
