@@ -1,7 +1,7 @@
 <?php
 return array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_shippinmethod',
+		'title'	=> 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_shippingmethod',
 		'label' => 'uid',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -20,7 +20,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => '',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_shippinmethod.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_shippingmethod.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ',
@@ -57,8 +57,8 @@ return array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_cadabra_domain_model_shippinmethod',
-				'foreign_table_where' => 'AND tx_cadabra_domain_model_shippinmethod.pid=###CURRENT_PID### AND tx_cadabra_domain_model_shippinmethod.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_cadabra_domain_model_shippingmethod',
+				'foreign_table_where' => 'AND tx_cadabra_domain_model_shippingmethod.pid=###CURRENT_PID### AND tx_cadabra_domain_model_shippingmethod.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(

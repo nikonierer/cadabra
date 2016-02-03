@@ -32,7 +32,7 @@ return array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -75,7 +75,7 @@ return array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -115,6 +115,40 @@ return array(
 				),
 			),
 		),
+		'name' => array(
+			'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute.name',
+				'config' => array(
+					'type' => 'input',
+					'size' => 30,
+					'max' => 255,
+					'eval' => 'trim'
+				)
+		),
+		'values' => array(
+				'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute.values',
+				'config' => array(
+					'type' => 'select',
+					'foreign_table' => 'tx_cadabra_domain_model_attribute_value',
+					'size' => 10,
+					'autoSizeMax' => 50,
+					'maxitems' => 9999,
+				),
+		),
+        'information' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute.information',
+            'config' => array(
+                'type' => 'select',
+                'foreign_table' => 'tx_cadabra_domain_model_information',
+                'MM_opposite_field' => 'items',
+                'MM_match_fields' => array(
+                    'tablenames' => 'categories',
+                    'fieldname' => 'pages',
+                ),
+                'size' => 10,
+                'autoSizeMax' => 50,
+                'maxitems' => 9999,
+            ),
 
+        ),
 	),
 );

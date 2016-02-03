@@ -115,6 +115,25 @@ return array(
 				),
 			),
 		),
-
+		'type' => array(
+			'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:price_influencer.type',
+			'config' => array(
+				'config' => array(
+					'type' => 'input',
+					'size' => 30,
+					'eval' => 'integer'
+				)
+			)
+		),
+		'value' => array(
+			'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:price_influencer.value',
+			'config' => array(
+				'config' => array(
+					'type' => 'input',
+					'size' => 30,
+					'eval' => 'double2'
+				)
+			)
+		),
 	),
 );

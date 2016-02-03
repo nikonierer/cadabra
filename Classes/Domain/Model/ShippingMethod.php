@@ -30,7 +30,7 @@ namespace Shop\Cadabra\Domain\Model;
 /**
  * ShippinMethod
  */
-class ShippinMethod extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class ShippingMethod extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     
