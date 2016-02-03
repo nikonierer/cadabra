@@ -1,0 +1,15 @@
+
+module.tx_cadabra_productadministration {
+	view {
+		# cat=module.tx_cadabra_productadministration/file; type=string; label=Path to template root (BE)
+		templateRootPath = EXT:cadabra/Resources/Private/Backend/Templates/
+		# cat=module.tx_cadabra_productadministration/file; type=string; label=Path to template partials (BE)
+		partialRootPath = EXT:cadabra/Resources/Private/Backend/Partials/
+		# cat=module.tx_cadabra_productadministration/file; type=string; label=Path to template layouts (BE)
+		layoutRootPath = EXT:cadabra/Resources/Private/Backend/Layouts/
+	}
+	persistence {
+		# cat=module.tx_cadabra_productadministration//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

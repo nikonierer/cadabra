@@ -1,0 +1,12 @@
+
+ # Module configuration
+module.tx_cadabra_web_cadabraproductadministration {
+	persistence {
+		storagePid = {$module.tx_cadabra_productadministration.persistence.storagePid}
+	}
+	view {
+		templateRootPaths.0 = {$module.tx_cadabra_productadministration.view.templateRootPath}
+		partialRootPaths.0 = {$module.tx_cadabra_productadministration.view.partialRootPath}
+		layoutRootPaths.0 = {$module.tx_cadabra_productadministration.view.layoutRootPath}
+	}
+}

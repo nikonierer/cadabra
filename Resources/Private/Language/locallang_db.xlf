@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-12-08T11:19:47Z" product-name="cadabra">
+		<header/>
+		<body>
+			<trans-unit id="tx_cadabra_domain_model_product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_articleattribute">
+				<source>Article Attribute</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_productattribute">
+				<source>Product Attribute</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_priceinfluencer">
+				<source>Price Influencer</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_checkboxattribute">
+				<source>Check Box Attribute</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_selectattribute">
+				<source>Select Attribute</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_radioattribute">
+				<source>Radio Attribute</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_attributeentry">
+				<source>Attribute Entry</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_information">
+				<source>Information</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_fileinformation">
+				<source>File Information</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_pageinformation">
+				<source>Page Information</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_textinformation">
+				<source>Text Information</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_basket">
+				<source>Basket</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_shippinmethod">
+				<source>Shippin Method</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_invoice">
+				<source>Invoice</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_deliveryreciept">
+				<source>Delivery Reciept</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_ordering">
+				<source>Ordering</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_paymentmethod">
+				<source>Payment Method</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_orderablearticle">
+				<source>Orderable Article</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_orderingposition">
+				<source>Ordering Position</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_basketentry">
+				<source>Basket Entry</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_page">
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="tx_cadabra_domain_model_file">
+				<source>File</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
