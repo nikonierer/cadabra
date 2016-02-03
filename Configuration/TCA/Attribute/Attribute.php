@@ -125,7 +125,13 @@ return array(
             'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute.values',
             'config' => array(
                 'type' => 'select',
-                'foreign_table' => 'tx_cadabra_domain_model_attribute_value',
+                'foreign_table' => 'tx_cadabra_domain_model_value',
+                'MM' => 'tx_cadabra_attribute_value_record_mm',
+                'MM_opposite_field' => 'records',
+                'MM_match_fields' => array(
+                    'tablenames' => 'tx_cadabra_domain_model_attribute',
+                    'fieldname' => 'values',
+                ),
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
@@ -136,10 +142,11 @@ return array(
             'config' => array(
                 'type' => 'select',
                 'foreign_table' => 'tx_cadabra_domain_model_information',
-                'MM_opposite_field' => 'items',
+                'MM' => 'tx_cadabra_information_record_mm',
+                'MM_opposite_field' => 'records',
                 'MM_match_fields' => array(
-                    'tablenames' => 'categories',
-                    'fieldname' => 'pages',
+                    'tablenames' => 'tx_cadabra_domain_model_attribute',
+                    'fieldname' => 'information',
                 ),
                 'size' => 10,
                 'autoSizeMax' => 50,
