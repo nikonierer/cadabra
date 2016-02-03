@@ -11,24 +11,22 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Cadabra',
-	'description' => '',
-	'category' => 'plugin',
-	'author' => 'Marcel Wieser',
-	'author_email' => 'typo3dev@marcel-wieser.de',
-	'state' => 'alpha',
-	'internal' => '',
-	'uploadfolder' => '0',
-	'createDirs' => '',
-	'clearCacheOnLoad' => 0,
-	'version' => '',
-	'constraints' => array(
-		'depends' => array(
-			'typo3' => '7.6.0-7.6.99',
-		),
-		'conflicts' => array(
-		),
-		'suggests' => array(
-		),
-	),
+    'title' => 'Cadabra',
+    'description' => '',
+    'category' => 'plugin',
+    'author' => 'Marcel Wieser',
+    'author_email' => 'typo3dev@marcel-wieser.de',
+    'state' => 'alpha',
+    'internal' => '',
+    'uploadfolder' => '0',
+    'createDirs' => '',
+    'clearCacheOnLoad' => 0,
+    'version' => '',
+    'constraints' => array(
+        'depends' => array(
+            'typo3' => '7.6.0-7.6.99',
+        ),
+        'conflicts' => array(),
+        'suggests' => array(),
+    ),
 );
