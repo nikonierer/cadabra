@@ -1,7 +1,7 @@
 <?php
 return array(
     'ctrl' => array(
-        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_product',
+        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_attribute_value',
         'label' => 'uid',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -19,13 +19,13 @@ return array(
             'endtime' => 'endtime',
         ),
         'searchFields' => '',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_product.gif'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_attribute_value.gif'
     ),
     'interface' => array(
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ',
     ),
     'types' => array(
-        '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, value, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
     ),
     'palettes' => array(
         '1' => array('showitem' => ''),
@@ -56,8 +56,8 @@ return array(
                 'items' => array(
                     array('', 0),
                 ),
-                'foreign_table' => 'tx_cadabra_domain_model_product',
-                'foreign_table_where' => 'AND tx_cadabra_domain_model_product.pid=###CURRENT_PID### AND tx_cadabra_domain_model_product.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_cadabra_domain_model_attribute_value',
+                'foreign_table_where' => 'AND tx_cadabra_domain_model_attribute_value.pid=###CURRENT_PID### AND tx_cadabra_domain_model_attribute_value.sys_language_uid IN (-1,0)',
             ),
         ),
         'l10n_diffsource' => array(
@@ -112,84 +112,13 @@ return array(
                 ),
             ),
         ),
-        'title' => array(
-            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.title',
+        'value' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute_value.value',
             'config' => array(
                 'type' => 'input',
                 'size' => 30,
                 'max' => 255,
             )
-        ),
-        'description' => array(
-            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.description',
-            'config' => array(
-                'type' => 'text',
-                'cols' => '40',
-                'rows' => '15'
-            )
-        ),
-        'base_price' => array(
-            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.base_price',
-            'config' => array(
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'double2'
-            )
-        ),
-        'tax_rate' => array(
-            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.tax_rate',
-            'config' => array(
-                'config' => array(
-                    'type' => 'input',
-                    'size' => 30,
-                    'eval' => 'double2'
-                )
-            )
-        ),
-        'categories' => array(
-            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.categories',
-            'config' => array(
-                'type' => 'select',
-                'foreign_table' => 'sys_category',
-                'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.sorting ASC',
-                'MM' => 'sys_category_record_mm',
-                'size' => 10,
-                'autoSizeMax' => 50,
-                'maxitems' => 9999,
-            ),
-        ),
-        'information' => array(
-            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.information',
-            'config' => array(
-                'type' => 'select',
-                'foreign_table' => 'tx_cadabra_domain_model_information',
-                'MM' => 'tx_cadabra_information_record_mm',
-                'MM_opposite_field' => 'records',
-                'MM_match_fields' => array(
-                    'tablenames' => 'tx_cadabra_domain_model_product',
-                    'fieldname' => 'information',
-                ),
-                'size' => 10,
-                'autoSizeMax' => 50,
-                'maxitems' => 9999,
-            ),
-
-        ),
-        'attributes' => array(
-            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.attribute',
-            'config' => array(
-                'type' => 'select',
-                'foreign_table' => 'tx_cadabra_domain_model_attribute',
-                'MM' => 'tx_cadabra_attribute_record_mm',
-                'MM_opposite_field' => 'records',
-                'MM_match_fields' => array(
-                    'tablenames' => 'tx_cadabra_domain_model_product',
-                    'fieldname' => 'attributes',
-                ),
-                'size' => 10,
-                'autoSizeMax' => 50,
-                'maxitems' => 9999,
-            ),
         ),
     ),
 );

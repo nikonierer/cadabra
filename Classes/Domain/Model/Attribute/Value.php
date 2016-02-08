@@ -31,5 +31,32 @@ namespace Shop\Cadabra\Domain\Model\Attribute;
  */
 class Value extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+    /**
+     * Contains the value
+     *
+     * @var string
+     */
+    protected $value;
+
+    /**
+     * Returns the value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Sets the value
+     *
+     * @param string $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
 
 }

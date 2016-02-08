@@ -29,12 +29,12 @@ CREATE TABLE tx_cadabra_domain_model_product (
 	l10n_diffsource mediumblob,
 
 	title varchar(255) DEFAULT '' NOT NULL,
-	description text DEFAULT '' NOT NULL,
+	description text NOT NULL,
 	attributes int(11) DEFAULT '0' NOT NULL,
 	information int(11) DEFAULT '0' NOT NULL,
 	categories int(11) DEFAULT '0' NOT NULL,
-	basePrice double(11,2) DEFAULT '0.00' NOT NULL,
-	taxRate double(11,2) DEFAULT '0.00' NOT NULL,
+	base_price double(11,2) DEFAULT '0.00' NOT NULL,
+	tax_rate double(11,2) DEFAULT '0.00' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -110,10 +110,13 @@ CREATE TABLE tx_cadabra_domain_model_attribute (
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
 
+	record_type varchar(255) DEFAULT '' NOT NULL,
+
 	name varchar(255) DEFAULT '' NOT NULL,
-	values int(11) DEFAULT '0' NOT NULL,
+	attribute_values int(11) DEFAULT '0' NOT NULL,
 	information int(11) DEFAULT '0' NOT NULL,
 	priceInfluencer int(11) DEFAULT '0' NOT NULL,
+	products int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -153,7 +156,7 @@ CREATE TABLE tx_cadabra_domain_model_priceinfluencer (
 	l10n_diffsource mediumblob,
 
 	type tinyint(1) DEFAULT '0' NOT NULL,
-	value double(11,2) DEFAULT '0' NOT NULL,
+	value double(11,2) DEFAULT '0.00' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -163,9 +166,9 @@ CREATE TABLE tx_cadabra_domain_model_priceinfluencer (
 );
 
 #
-# Table structure for table 'tx_cadabra_domain_model_attributeentry'
+# Table structure for table 'tx_cadabra_domain_model_attribute_value'
 #
-CREATE TABLE tx_cadabra_domain_model_attributevalue (
+CREATE TABLE tx_cadabra_domain_model_attribute_value (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -191,6 +194,9 @@ CREATE TABLE tx_cadabra_domain_model_attributevalue (
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
+
+	attribute int(11) DEFAULT '0' NOT NULL,
+	value varchar(255) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -229,11 +235,90 @@ CREATE TABLE tx_cadabra_domain_model_information (
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
 
+	record_type varchar(255) DEFAULT '' NOT NULL,
+	content text NOT NULL,
+	items int(11) DEFAULT '0' NOT NULL,
+
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
  KEY language (l10n_parent,sys_language_uid)
 
+);
+
+#
+# Table structure for table 'tx_cadabra_attribute_value_mm'
+#
+CREATE TABLE tx_cadabra_attribute_value_mm (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local_foreign (uid_local,uid_foreign),
+	KEY uid_foreign_tablefield (uid_foreign,sorting_foreign)
+);
+
+#
+# Table structure for table 'tx_cadabra_product_information_mm'
+#
+CREATE TABLE tx_cadabra_product_information_mm (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local_foreign (uid_local,uid_foreign),
+	KEY uid_foreign_tablefield (uid_foreign,sorting_foreign)
+);
+
+#
+# Table structure for table 'tx_cadabra_product_attribute_mm'
+#
+CREATE TABLE tx_cadabra_product_attribute_mm (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local_foreign (uid_local,uid_foreign),
+	KEY uid_foreign_tablefield (uid_foreign,sorting_foreign)
+);
+
+#
+# Table structure for table 'tx_cadabra_information_record_mm'
+#
+CREATE TABLE tx_cadabra_information_record_mm (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	tablenames varchar(255) DEFAULT '' NOT NULL,
+	fieldname varchar(255) DEFAULT '' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local_foreign (uid_local,uid_foreign),
+	KEY uid_foreign_tablefield (uid_foreign,tablenames(40),fieldname(3),sorting_foreign)
+);
+
+#
+# Extend table structure for table 'pages'
+#
+CREATE TABLE pages (
+	tx_cadabra_information int(11) DEFAULT '0' NOT NULL
+);
+
+#
+# Extend table structure for table 'tt_content'
+#
+CREATE TABLE tt_content (
+	tx_cadabra_information int(11) DEFAULT '0' NOT NULL
+);
+
+#
+# Extend table structure for table 'sys_file'
+#
+CREATE TABLE sys_file (
+	tx_cadabra_information int(11) DEFAULT '0' NOT NULL
 );
 
 #
@@ -573,80 +658,6 @@ CREATE TABLE tx_cadabra_domain_model_orderingposition (
 # Table structure for table 'tx_cadabra_domain_model_basketentry'
 #
 CREATE TABLE tx_cadabra_domain_model_basketentry (
-
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-
-	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
-	crdate int(11) unsigned DEFAULT '0' NOT NULL,
-	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
-	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	starttime int(11) unsigned DEFAULT '0' NOT NULL,
-	endtime int(11) unsigned DEFAULT '0' NOT NULL,
-
-	t3ver_oid int(11) DEFAULT '0' NOT NULL,
-	t3ver_id int(11) DEFAULT '0' NOT NULL,
-	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
-	t3ver_label varchar(255) DEFAULT '' NOT NULL,
-	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
-	t3ver_stage int(11) DEFAULT '0' NOT NULL,
-	t3ver_count int(11) DEFAULT '0' NOT NULL,
-	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
-	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-
-	sys_language_uid int(11) DEFAULT '0' NOT NULL,
-	l10n_parent int(11) DEFAULT '0' NOT NULL,
-	l10n_diffsource mediumblob,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
- KEY language (l10n_parent,sys_language_uid)
-
-);
-
-#
-# Table structure for table 'tx_cadabra_domain_model_page'
-#
-CREATE TABLE tx_cadabra_domain_model_page (
-
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-
-	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
-	crdate int(11) unsigned DEFAULT '0' NOT NULL,
-	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
-	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	starttime int(11) unsigned DEFAULT '0' NOT NULL,
-	endtime int(11) unsigned DEFAULT '0' NOT NULL,
-
-	t3ver_oid int(11) DEFAULT '0' NOT NULL,
-	t3ver_id int(11) DEFAULT '0' NOT NULL,
-	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
-	t3ver_label varchar(255) DEFAULT '' NOT NULL,
-	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
-	t3ver_stage int(11) DEFAULT '0' NOT NULL,
-	t3ver_count int(11) DEFAULT '0' NOT NULL,
-	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
-	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-
-	sys_language_uid int(11) DEFAULT '0' NOT NULL,
-	l10n_parent int(11) DEFAULT '0' NOT NULL,
-	l10n_diffsource mediumblob,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
- KEY language (l10n_parent,sys_language_uid)
-
-);
-
-#
-# Table structure for table 'tx_cadabra_domain_model_file'
-#
-CREATE TABLE tx_cadabra_domain_model_file (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,

@@ -37,29 +37,17 @@ if (TYPO3_MODE === 'BE') {
     'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_articleattribute.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_articleattribute');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_productattribute',
-    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_productattribute.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_productattribute');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_attribute',
+    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_attribute.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_attribute');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_priceinfluencer',
     'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_priceinfluencer.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_priceinfluencer');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_checkboxattribute',
-    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_checkboxattribute.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_checkboxattribute');
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_selectattribute',
-    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_selectattribute.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_selectattribute');
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_radioattribute',
-    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_radioattribute.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_radioattribute');
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_attributeentry',
-    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_attributeentry.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_attributeentry');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_attribute_value',
+    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_attribute_value.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_attribute_value');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_information',
     'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_information.xlf');

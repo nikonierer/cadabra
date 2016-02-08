@@ -7,42 +7,98 @@
             <trans-unit id="tx_cadabra_domain_model_product">
                 <source>Product</source>
             </trans-unit>
+            <trans-unit id="product.title">
+                <source>Product title</source>
+            </trans-unit>
+            <trans-unit id="product.description">
+                <source>Product description</source>
+            </trans-unit>
+            <trans-unit id="product.base_price">
+                <source>Product base price</source>
+            </trans-unit>
+            <trans-unit id="product.tax_rate">
+                <source>Product tax rate</source>
+            </trans-unit>
+            <trans-unit id="product.categories">
+                <source>Product categories</source>
+            </trans-unit>
+            <trans-unit id="product.information">
+                <source>Product information</source>
+            </trans-unit>
+            <trans-unit id="product.attributes">
+                <source>Product attributes</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cadabra_domain_model_information">
+                <source>Information</source>
+            </trans-unit>
+            <trans-unit id="information.record_type">
+                <source>Information type</source>
+            </trans-unit>
+            <trans-unit id="information.record_type.page">
+                <source>Page information</source>
+            </trans-unit>
+            <trans-unit id="information.record_type.file">
+                <source>File information</source>
+            </trans-unit>
+            <trans-unit id="information.record_type.tt_content">
+                <source>Content information</source>
+            </trans-unit>
+            <trans-unit id="information.record_type.text">
+                <source>Text information</source>
+            </trans-unit>
+            <trans-unit id="information.content">
+                <source>Information content</source>
+            </trans-unit>
+            <trans-unit id="information.items">
+                <source>Information items</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cadabra_domain_model_attribute">
+                <source>Attribute</source>
+            </trans-unit>
+            <trans-unit id="attribute.record_type">
+                <source>Attribute type</source>
+            </trans-unit>
+            <trans-unit id="attribute.record_type.select">
+                <source>Select attribute</source>
+            </trans-unit>
+            <trans-unit id="attribute.record_type.checkbox">
+                <source>CheckBox attribute</source>
+            </trans-unit>
+            <trans-unit id="attribute.record_type.radio">
+                <source>Radio attribute</source>
+            </trans-unit>
+            <trans-unit id="attribute.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="attribute.attribute_values">
+                <source>Attribute values</source>
+            </trans-unit>
+            <trans-unit id="attribute.information">
+                <source>Information</source>
+            </trans-unit>
+            <trans-unit id="attribute.products">
+                <source>Products</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cadabra_domain_model_attribute_value">
+                <source>Attribute value</source>
+            </trans-unit>
+            <trans-unit id="attribute_value.value">
+                <source>Value</source>
+            </trans-unit>
+
             <trans-unit id="tx_cadabra_domain_model_article">
                 <source>Article</source>
             </trans-unit>
             <trans-unit id="tx_cadabra_domain_model_articleattribute">
                 <source>Article Attribute</source>
             </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_productattribute">
-                <source>Product Attribute</source>
-            </trans-unit>
             <trans-unit id="tx_cadabra_domain_model_priceinfluencer">
                 <source>Price Influencer</source>
             </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_checkboxattribute">
-                <source>Check Box Attribute</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_selectattribute">
-                <source>Select Attribute</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_radioattribute">
-                <source>Radio Attribute</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_attributeentry">
-                <source>Attribute Entry</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_information">
-                <source>Information</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_fileinformation">
-                <source>File Information</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_pageinformation">
-                <source>Page Information</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_textinformation">
-                <source>Text Information</source>
-            </trans-unit>
+
             <trans-unit id="tx_cadabra_domain_model_address">
                 <source>Address</source>
             </trans-unit>
