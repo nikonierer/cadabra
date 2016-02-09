@@ -29,7 +29,7 @@ namespace Shop\Cadabra\Domain\Model\Information;
 /**
  * TextInformation
  */
-class TextInformation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements InformationInterface
+class TextInformation extends AbstractInformation
 {
     public function render()
     {

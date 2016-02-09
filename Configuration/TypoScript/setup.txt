@@ -10,3 +10,87 @@ module.tx_cadabra_web_cadabraproductadministration {
         layoutRootPaths.0 = {$module.tx_cadabra_productadministration.view.layoutRootPath}
     }
 }
+
+
+config.tx_extbase.persistence.classes {
+    Shop\Cadabra\Domain\Model\Attribute\AttributeValue {
+        mapping {
+            tableName = tx_cadabra_domain_model_attribute_value
+        }
+    }
+
+    Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute {
+        mapping {
+            tableName = tx_cadabra_domain_model_attribute
+            recordType = Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute
+            columns {
+                attribute_values.mapOnProperty = values
+            }
+        }
+        subclasses {
+            Shop\Cadabra\Domain\Model\Attribute\CheckBoxAttribute = Shop\Cadabra\Domain\Model\Attribute\CheckBoxAttribute
+            Shop\Cadabra\Domain\Model\Attribute\RadioAttribute = Shop\Cadabra\Domain\Model\Attribute\RadioAttribute
+            Shop\Cadabra\Domain\Model\Attribute\SelectAttribute = Shop\Cadabra\Domain\Model\Attribute\SelectAttribute
+        }
+    }
+
+    Shop\Cadabra\Domain\Model\Attribute\CheckBoxAttribute {
+        mapping {
+            tableName = tx_cadabra_domain_model_attribute
+            recordType = Shop\Cadabra\Domain\Model\Attribute\CheckBoxAttribute
+        }
+    }
+    Shop\Cadabra\Domain\Model\Attribute\RadioAttribute {
+        mapping {
+            tableName = tx_cadabra_domain_model_attribute
+            recordType = Shop\Cadabra\Domain\Model\Attribute\RadioAttribute
+        }
+    }
+    Shop\Cadabra\Domain\Model\Attribute\SelectAttribute {
+        mapping {
+            tableName = tx_cadabra_domain_model_attribute
+            recordType = Shop\Cadabra\Domain\Model\Attribute\SelectAttribute
+        }
+    }
+
+    Shop\Cadabra\Domain\Model\Information\AbstractInformation {
+        mapping {
+            tableName = tx_cadabra_domain_model_information
+            recordType = Shop\Cadabra\Domain\Model\Information\AbstractInformation
+        }
+        subclasses {
+            Shop\Cadabra\Domain\Model\Information\FileInformation = Shop\Cadabra\Domain\Model\Information\FileInformation
+            Shop\Cadabra\Domain\Model\Information\PageInformation = Shop\Cadabra\Domain\Model\Information\PageInformation
+            Shop\Cadabra\Domain\Model\Information\TextInformation = Shop\Cadabra\Domain\Model\Information\TextInformation
+            Shop\Cadabra\Domain\Model\Information\TtContentInformation = Shop\Cadabra\Domain\Model\Information\TtContentInformation
+        }
+    }
+
+    Shop\Cadabra\Domain\Model\Information\FileInformation {
+        mapping {
+            tableName = tx_cadabra_domain_model_information
+            recordType = Shop\Cadabra\Domain\Model\Information\FileInformation
+        }
+    }
+    Shop\Cadabra\Domain\Model\Information\PageInformation {
+        mapping {
+            tableName = tx_cadabra_domain_model_information
+            recordType = Shop\Cadabra\Domain\Model\Information\PageInformation
+        }
+    }
+    Shop\Cadabra\Domain\Model\Information\TextInformation {
+        mapping {
+            tableName = tx_cadabra_domain_model_information
+            recordType = Shop\Cadabra\Domain\Model\Information\TextInformation
+        }
+    }
+    Shop\Cadabra\Domain\Model\Information\TtContentInformation {
+        mapping {
+            tableName = tx_cadabra_domain_model_information
+            recordType = Shop\Cadabra\Domain\Model\Information\TtContentInformation
+        }
+    }
+
+
+
+}

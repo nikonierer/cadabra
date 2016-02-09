@@ -49,7 +49,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Contains relations to the product attributes
      *
      * @lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Attribute\AttributeInterface>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute>
      */
     protected $attributes;
 
@@ -57,14 +57,14 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Contains relations to further information
      *
      * @lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Information\InformationInterface>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     protected $information;
 
     /**
      * Contains relations to the categories
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Category>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Category>
      */
     protected $categories;
 
@@ -81,6 +81,23 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var double
      */
     protected $taxRate;
+
+    /**
+     * The constructor
+     */
+    public function __construct()
+    {
+        $this->initializeObject();
+    }
+
+    /**
+     * Initialize objects
+     */
+    public function initializeObject()
+    {
+        $this->attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->information = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
 
     /**
      * @return string
@@ -115,7 +132,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Attribute\AttributeInterface>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute>
      */
     public function getAttributes()
     {
@@ -123,7 +140,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Attribute\AttributeInterface> $attributes
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute> $attributes
      */
     public function setAttributes($attributes)
     {
@@ -131,7 +148,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Information\InformationInterface>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     public function getInformation()
     {
@@ -139,7 +156,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Information\InformationInterface> $information
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation> $information
      */
     public function setInformation($information)
     {
@@ -147,7 +164,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Category>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Category>
      */
     public function getCategories()
     {
@@ -155,7 +172,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Category> $categories
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Category> $categories
      */
     public function setCategories($categories)
     {

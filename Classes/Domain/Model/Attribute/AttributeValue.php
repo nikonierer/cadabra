@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Domain\Model\Information;
+namespace Shop\Cadabra\Domain\Model\Attribute;
 
     /***************************************************************
      *
@@ -27,9 +27,36 @@ namespace Shop\Cadabra\Domain\Model\Information;
      ***************************************************************/
 
 /**
- * InformationInterface
+ * Value
  */
-interface InformationInterface
+class AttributeValue extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-    public function render();
+    /**
+     * Contains the value
+     *
+     * @var string
+     */
+    protected $value;
+
+    /**
+     * Returns the value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Sets the value
+     *
+     * @param string $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+
 }

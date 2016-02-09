@@ -129,18 +129,18 @@ return array(
                 'items' => array(
                     array(
                         'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute.record_type.checkbox',
-                        '\\Shop\\Cadabra\\Domain\\Model\\Attribute\\CheckBoxAttribute'
+                        'Shop\\Cadabra\\Domain\\Model\\Attribute\\CheckBoxAttribute'
                     ),
                     array(
                         'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute.record_type.radio',
-                        '\\Shop\\Cadabra\\Domain\\Model\\Attribute\\RadioAttribute'
+                        'Shop\\Cadabra\\Domain\\Model\\Attribute\\RadioAttribute'
                     ),
                     array(
                         'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute.record_type.select',
-                        '\\Shop\\Cadabra\\Domain\\Model\\Attribute\\SelectAttribute'
+                        'Shop\\Cadabra\\Domain\\Model\\Attribute\\SelectAttribute'
                     ),
                 ),
-                'default' => '\\Shop\\Cadabra\\Domain\\Model\\Information\\SelectAttribute',
+                'default' => 'Shop\\Cadabra\\Domain\\Model\\Information\\SelectAttribute',
             ),
         ),
 

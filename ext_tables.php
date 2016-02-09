@@ -13,7 +13,9 @@ if (TYPO3_MODE === 'BE') {
         'web',     // Make module a submodule of 'web'
         'productadministration',    // Submodule key
         '',                        // Position
-        array(),
+        array(
+            'Backend' => 'index'
+        ),
         array(
             'access' => 'user,group',
             'icon' => 'EXT:' . $_EXTKEY . '/ext_icon.gif',

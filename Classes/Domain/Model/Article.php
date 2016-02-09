@@ -32,5 +32,4 @@ namespace Shop\Cadabra\Domain\Model;
 class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
-
 }

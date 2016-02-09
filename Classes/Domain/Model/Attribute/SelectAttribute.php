@@ -29,7 +29,7 @@ namespace Shop\Cadabra\Domain\Model\Attribute;
 /**
  * SelectAttribute
  */
-class SelectAttribute extends AbstractAttribute implements AttributeInterface
+class SelectAttribute extends AbstractAttribute
 {
 
 

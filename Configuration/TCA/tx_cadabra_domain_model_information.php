@@ -27,10 +27,10 @@ return array(
     ),
     'types' => array(
         '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-        '\\Shop\\Cadabra\\Domain\\Model\\Information\\FileInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-        '\\Shop\\Cadabra\\Domain\\Model\\Information\\PageInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-        '\\Shop\\Cadabra\\Domain\\Model\\Information\\TtContentInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-        '\\Shop\\Cadabra\\Domain\\Model\\Information\\TextInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, content, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        'Shop\\Cadabra\\Domain\\Model\\Information\\FileInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        'Shop\\Cadabra\\Domain\\Model\\Information\\PageInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        'Shop\\Cadabra\\Domain\\Model\\Information\\TtContentInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        'Shop\\Cadabra\\Domain\\Model\\Information\\TextInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, content, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
     ),
     'palettes' => array(
         '1' => array('showitem' => ''),
@@ -124,22 +124,22 @@ return array(
                 'items' => array(
                     array(
                         'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.record_type.file',
-                        '\\Shop\\Cadabra\\Domain\\Model\\Information\\FileInformation'
+                        'Shop\\Cadabra\\Domain\\Model\\Information\\FileInformation'
                     ),
                     array(
                         'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.record_type.page',
-                        '\\Shop\\Cadabra\\Domain\\Model\\Information\\PageInformation'
+                        'Shop\\Cadabra\\Domain\\Model\\Information\\PageInformation'
                     ),
                     array(
                         'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.record_type.tt_content',
-                        '\\Shop\\Cadabra\\Domain\\Model\\Information\\TtContent'
+                        'Shop\\Cadabra\\Domain\\Model\\Information\\TtContent'
                     ),
                     array(
                         'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.record_type.text',
-                        '\\Shop\\Cadabra\\Domain\\Model\\Information\\TextInformation'
+                        'Shop\\Cadabra\\Domain\\Model\\Information\\TextInformation'
                     ),
                 ),
-                'default' => '\\Shop\\Cadabra\\Domain\\Model\\Information\\TextInformation',
+                'default' => 'Shop\\Cadabra\\Domain\\Model\\Information\\TextInformation',
             ),
         ),
         'content' => array(

@@ -29,7 +29,7 @@ namespace Shop\Cadabra\Domain\Model\Attribute;
 /**
  * RadioAttribute
  */
-class RadioAttribute extends AbstractAttribute implements AttributeInterface
+class RadioAttribute extends AbstractAttribute
 {
 
 

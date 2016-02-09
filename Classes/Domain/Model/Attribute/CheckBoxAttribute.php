@@ -29,7 +29,7 @@ namespace Shop\Cadabra\Domain\Model\Attribute;
 /**
  * CheckBoxAttribute
  */
-class CheckBoxAttribute extends AbstractAttribute implements AttributeInterface
+class CheckBoxAttribute extends AbstractAttribute
 {
 
 

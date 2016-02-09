@@ -29,7 +29,7 @@ namespace Shop\Cadabra\Domain\Model\Attribute;
 /**
  * AbstractAttribute
  */
-abstract class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements AttributeInterface
+class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
      * Contains the name of the attribute
@@ -41,7 +41,7 @@ abstract class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\Abstrac
     /**
      * Contains relations to the values of the attribute
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Attribute\Value>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AttributeValue>
      */
     protected $values;
 
@@ -49,7 +49,7 @@ abstract class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\Abstrac
      * Contains relations to further information
      *
      * @lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Information\InformationInterface>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     protected $information;
 
@@ -57,6 +57,23 @@ abstract class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\Abstrac
      * @var \Shop\Cadabra\Domain\Model\PriceInfluencer;
      */
     protected $priceInfluencer;
+
+    /**
+     * The constructor
+     */
+    public function __construct()
+    {
+        $this->initializeObject();
+    }
+
+    /**
+     * Initialize objects
+     */
+    public function initializeObject()
+    {
+        $this->values = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->information = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
 
     /**
      * @return string
@@ -75,7 +92,7 @@ abstract class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\Abstrac
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Attribute\Value>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AttributeValue>
      */
     public function getValues()
     {
@@ -83,7 +100,7 @@ abstract class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\Abstrac
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Attribute\Value> $values
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AttributeValue> $values
      */
     public function setValues($values)
     {
@@ -91,7 +108,7 @@ abstract class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\Abstrac
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Information\InformationInterface>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     public function getInformation()
     {
@@ -99,7 +116,7 @@ abstract class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\Abstrac
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\Information\InformationInterface> $information
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation> $information
      */
     public function setInformation($information)
     {

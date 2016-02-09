@@ -5,7 +5,7 @@ namespace Shop\Cadabra\Domain\Model\Information;
      *
      *  Copyright notice
      *
-     *  (c) 2015 Marcel Wieser <typo3dev@marcel-wieser.de>
+     *  (c) 2016 Marcel Wieser <typo3dev@marcel-wieser.de>
      *
      *  All rights reserved
      *
@@ -27,11 +27,9 @@ namespace Shop\Cadabra\Domain\Model\Information;
      ***************************************************************/
 
 /**
- * FileInformation
+ * AbstractAttribute
  */
-class FileInformation extends AbstractInformation
+class AbstractInformation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-    public function render()
-    {
-    }
+
 }

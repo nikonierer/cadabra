@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Domain\Model\Attribute;
+namespace Shop\Cadabra\Domain\Model\Information;
 
     /***************************************************************
      *
@@ -27,9 +27,11 @@ namespace Shop\Cadabra\Domain\Model\Attribute;
      ***************************************************************/
 
 /**
- * AttributeInterface
+ * FileInformation
  */
-interface AttributeInterface
+class TtContentInformation extends AbstractInformation
 {
-
+    public function render()
+    {
+    }
 }
