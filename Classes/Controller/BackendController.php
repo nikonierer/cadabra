@@ -21,14 +21,32 @@ namespace Shop\Cadabra\Controller;
      ***************************************************************/
 
 /**
- * BaseController
+ * BackendController
  */
 class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+
+    /**
+     * @var \Shop\Cadabra\Domain\Repository\ProductRepository
+     * @inject
+     */
+    protected $productRepository;
+
+    /**
+     * @var \Shop\Cadabra\Service\ArticleHashingService
+     * @inject
+     */
+    protected $articleHashingService;
+
     /**
      * @return void
      */
     public function indexAction() {
+        $this->articleHashingService->setProductByIdentifier(1);
+        $this->articleHashingService->generateArticles();
 
+        $products = $this->productRepository->findAll();
+
+        $this->view->assign('products', $products);
     }
 }
