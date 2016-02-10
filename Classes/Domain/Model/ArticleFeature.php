@@ -31,6 +31,96 @@ namespace Shop\Cadabra\Domain\Model;
  */
 class ArticleFeature extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+    /**
+     * Contains the product
+     *
+     * @var \Shop\Cadabra\Domain\Model\Product
+     */
+    protected $product;
 
+    /**
+     * Contains the article
+     *
+     * @var \Shop\Cadabra\Domain\Model\Article
+     */
+    protected $article;
+
+    /**
+     * Contains the attribute
+     *
+     * @var \Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute
+     */
+    protected $attribute;
+
+    /**
+     * Contains the attribute value
+     *
+     * @var \Shop\Cadabra\Domain\Model\Attribute\AttributeValue
+     */
+    protected $attributeValue;
+
+    /**
+     * @return Product
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param Product $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * @return Article
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    /**
+     * @param Article $article
+     */
+    public function setArticle($article)
+    {
+        $this->article = $article;
+    }
+
+    /**
+     * @return Attribute\AbstractAttribute
+     */
+    public function getAttribute()
+    {
+        return $this->attribute;
+    }
+
+    /**
+     * @param Attribute\AbstractAttribute $attribute
+     */
+    public function setAttribute($attribute)
+    {
+        $this->attribute = $attribute;
+    }
+
+    /**
+     * @return Attribute\AttributeValue
+     */
+    public function getAttributeValue()
+    {
+        return $this->attributeValue;
+    }
+
+    /**
+     * @param Attribute\AttributeValue $attributeValue
+     */
+    public function setAttributeValue($attributeValue)
+    {
+        $this->attributeValue = $attributeValue;
+    }
 
 }

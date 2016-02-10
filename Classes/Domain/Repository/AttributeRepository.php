@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Controller;
+namespace Shop\Cadabra\Domain\Repository;
 
     /***************************************************************
      *  Copyright notice
@@ -21,43 +21,20 @@ namespace Shop\Cadabra\Controller;
      ***************************************************************/
 
 /**
- * BackendController
+ * The repository for attributes
  */
-class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class AttributeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-
     /**
-     * @var \Shop\Cadabra\Domain\Repository\ProductRepository
-     * @inject
+     * Initialize Object
      */
-    protected $productRepository;
+    public function initializeObject()
+    {
+        $this->objectType = 'Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute';
 
-    /**
-     * @var \Shop\Cadabra\Service\ArticleHashingService
-     * @inject
-     */
-    protected $articleHashingService;
-
-    /**
-     * @var \Shop\Cadabra\Factory\ArticleFactory
-     * @inject
-     */
-    protected $articleFactory;
-
-    /**
-     * @return void
-     */
-    public function indexAction() {
-
-
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->articleFactory->generateArticlesFromProduct(1, true));
-
-//        $hashes = $this->articleHashingService->generateHashes(1);
-//
-//        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($hashes);
-
-        $products = $this->productRepository->findAll();
-
-        $this->view->assign('products', $products);
+        /** @var $querySettings \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings */
+        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+        $querySettings->setRespectStoragePage(false);
+        $this->setDefaultQuerySettings($querySettings);
     }
 }

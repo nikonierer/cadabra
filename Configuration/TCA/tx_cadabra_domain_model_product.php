@@ -165,13 +165,16 @@ return array(
             'config' => array(
                 'type' => 'select',
                 'foreign_table' => 'tx_cadabra_domain_model_information',
-                'MM' => 'tx_cadabra_product_information_mm',
-                'MM_opposite_field' => 'products',
+                'MM' => 'tx_cadabra_information_record_mm',
+                'MM_opposite_field' => 'records',
+                'MM_match_fields' => array(
+                    'tablenames' => 'tx_cadabra_domain_model_product',
+                    'fieldname' => 'information',
+                ),
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
             ),
-
         ),
         'attributes' => array(
             'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.attributes',

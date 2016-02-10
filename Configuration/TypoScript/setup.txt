@@ -18,6 +18,11 @@ config.tx_extbase.persistence.classes {
             tableName = tx_cadabra_domain_model_attribute_value
         }
     }
+    Shop\Cadabra\Domain\Model\ArticleFeature {
+        mapping {
+            tableName = tx_cadabra_domain_model_article_feature
+        }
+    }
 
     Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute {
         mapping {

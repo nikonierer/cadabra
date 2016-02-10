@@ -38,6 +38,6 @@ class ArticleRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             $query->equals('hash', $hash)
         );
 
-        return $query->execute();
+        return $query->execute()->getFirst();
     }
 }

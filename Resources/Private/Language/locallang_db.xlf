@@ -92,9 +92,35 @@
             <trans-unit id="tx_cadabra_domain_model_article">
                 <source>Article</source>
             </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_articleattribute">
-                <source>Article Attribute</source>
+            <trans-unit id="article.product">
+                <source>Product</source>
             </trans-unit>
+            <trans-unit id="article.hash">
+                <source>Hash</source>
+            </trans-unit>
+            <trans-unit id="article.features">
+                <source>Features</source>
+            </trans-unit>
+           <trans-unit id="article.information">
+                <source>Information</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cadabra_domain_model_article_feature">
+                <source>Article feature</source>
+            </trans-unit>
+            <trans-unit id="article_feature.product">
+                <source>Product</source>
+            </trans-unit>
+            <trans-unit id="article_feature.article">
+                <source>Article</source>
+            </trans-unit>
+            <trans-unit id="article_feature.attribute">
+                <source>Attribute</source>
+            </trans-unit>
+            <trans-unit id="article_feature.attribute_value">
+                <source>Attribute value</source>
+            </trans-unit>
+
             <trans-unit id="tx_cadabra_domain_model_priceinfluencer">
                 <source>Price Influencer</source>
             </trans-unit>
@@ -128,15 +154,6 @@
             </trans-unit>
             <trans-unit id="tx_cadabra_domain_model_basketentry">
                 <source>Basket Entry</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_category">
-                <source>Category</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_page">
-                <source>Page</source>
-            </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_file">
-                <source>File</source>
             </trans-unit>
         </body>
     </file>

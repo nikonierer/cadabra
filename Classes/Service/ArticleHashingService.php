@@ -33,6 +33,8 @@ namespace Shop\Cadabra\Service;
 class ArticleHashingService
 {
     static protected $productModel = '\Shop\Cadabra\Domain\Model\Product';
+    static protected $articleModel = '\Shop\Cadabra\Domain\Model\Article';
+    static protected $attributeValue = '\Shop\Cadabra\Domain\Model\Attribute\AttributeValue';
 
     /**
      * @inject
@@ -47,51 +49,168 @@ class ArticleHashingService
     protected $articleRepository;
 
     /**
+     * @inject
+     * @var \Shop\Cadabra\Domain\Repository\AttributeRepository
+     */
+    protected $attributeRepository;
+
+    /**
      * @var \Shop\Cadabra\Domain\Model\Product
      */
-    protected $product;
+    protected $product = null;
 
     /**
      * @var array
      */
-    protected $attributes;
+    protected $attributes = null;
 
     /**
      * @var array
      */
-    protected $attributeCombinations;
+    protected $attributeCombinations = null;
 
     /**
-     * Sets product to build articles from
+     * Generates hashes for all possible articles from a product
      *
-     * @param \Shop\Cadabra\Domain\Model\Product $product
-     * @return void
-     */
-    public function setProduct($product) {
-        $this->product = $product;
-    }
-
-    /**
-     * Allows to set the product by identifier
-     *
-     * @param integer $identifier
-     * @return void
-     */
-    public function setProductByIdentifier($identifier) {
-        $this->product = $this->productRepository->findByIdentifier($identifier);
-    }
-
-    /**
+     * @param integer|\Shop\Cadabra\Domain\Model\Product $product
      * @return array
      */
-    public function generateArticles() {
-        $this->checkProductProperty();
+    public function generateHashes($product) {
+        $this->reset();
+        $this->setProduct($product);
+
         $this->extractAttributes();
+        $this->generateAllPossibleAttributeCombinations();
 
-        $this->generateAllPossibleAttributeCombinations($this->attributes);
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->attributes);
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->attributeCombinations);
+        $hashes = array();
 
+        foreach($this->attributeCombinations as $attributes) {
+            $hashes[] = self::createHash($this->product->getUid(), $attributes);
+        }
+
+        return $hashes;
+    }
+
+    /**
+     * Creates JSON string as identifier for an article
+     *
+     * @param integer $productIdentifier
+     * @param array $attributes
+     *
+     * @return string
+     */
+    public static function createHash($productIdentifier, $attributes) {
+        $articleIdentifier = array(
+            'p' => $productIdentifier,
+            'a' => $attributes
+        );
+
+        return json_encode($articleIdentifier);
+    }
+
+    /**
+     * Returns an article object based on the hash identifier
+     *
+     * @param string $hash
+     * @throws \Shop\Cadabra\Exception
+     * @return \Shop\Cadabra\Domain\Model\Article
+     */
+    public function resolveHash($hash) {
+        $this->reset();
+
+        $article = $this->articleRepository->findByHash($hash);
+        //Return persisted article if available
+        if($article !== null) {
+            return $article;
+        }
+
+        $json = json_decode($hash, true);
+
+        $this->setProduct($json['p']);
+
+        //Build article feature objects
+        //TODO reset
+
+
+        $features = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        foreach($json['a'] as $attribute => $attributeValue) {
+            /**
+             * @TODO: Use property mapper?!
+             */
+            $feature = new \Shop\Cadabra\Domain\Model\ArticleFeature();
+            $feature->setProduct($this->product);
+
+            /** @var \Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute $attributeObject */
+            $attributeObject = $this->attributeRepository->findByIdentifier($attribute);
+            if($attributeObject === null) {
+                throw new \Shop\Cadabra\Exception('Attribute with identifier '. $attribute .' is not available in the database.', 1455116486);
+            }
+            $feature->setAttribute($attributeObject);
+
+            /** @var \Shop\Cadabra\Domain\Model\Attribute\AttributeValue $value */
+            foreach ($attributeObject->getValues() as $value) {
+                //Check if attribute value belongs to supplied attribute
+                if($value->getUid() == $attributeValue) {
+                    $feature->setAttributeValue($value);
+                }
+            }
+            //No corresponding record found in attribute value list
+            $obj = new self::$attributeValue;
+            if (!$feature->getAttributeValue() instanceof $obj) {
+                throw new \Shop\Cadabra\Exception(
+                    'Attribute value with identifier '. $attributeValue .'does not belong to the attribute with identifier'. $attribute,
+                    1455117095
+                );
+            }
+
+            $features->attach($feature);
+        }
+
+        /**
+         * @TODO: Use property mapper?!
+         */
+        $article = new \Shop\Cadabra\Domain\Model\Article();
+        $article->setProduct($this->product);
+        $article->setFeatures($features);
+        $article->setHash($hash);
+
+        return $article;
+    }
+
+    /**
+     * Resets the service.
+     *
+     * This will avoid side effects
+     * e.g. if you have to resolve a hash immediately
+     * after you created hashes for a specific product
+     *
+     * @return void
+     */
+    public function reset() {
+        $this->attributes = null;
+        $this->attributeCombinations = null;
+        $this->product = null;
+    }
+
+    /**
+     * Sets property product based on object or identifier
+     *
+     * @param integer|\Shop\Cadabra\Domain\Model\Product $product
+     * @throws \Shop\Cadabra\Exception
+     */
+    protected function setProduct($product) {
+        $obj = new self::$productModel;
+        if (!$product instanceof $obj && !is_integer($product)) {
+            throw new \Shop\Cadabra\Exception('Property "product" must be an instance of '. self::$productModel .' or an integer.', 1455030395);
+        } elseif(is_integer($product)) {
+            $this->product = $this->productRepository->findByIdentifier($product);
+
+            if(!$this->product instanceof $obj) {
+                throw new \Shop\Cadabra\Exception('Product could not be fetched from database.', 1455102729);
+            }
+        } else {
+            $this->product = $product;
+        }
     }
 
     /**
@@ -119,9 +238,15 @@ class ArticleHashingService
     }
 
     /**
+     * Generates all possible combinations for related attributes of a product
+     *
      * @param array $arrays
      */
-    protected function generateAllPossibleAttributeCombinations($arrays) {
+    protected function generateAllPossibleAttributeCombinations($arrays = null) {
+        if($arrays === null) {
+            $arrays = $this->attributes;
+        }
+
         $result = array();
 
         //calculate expected size of result array...
@@ -153,14 +278,4 @@ class ArticleHashingService
         $this->attributeCombinations = $result;
     }
 
-    /**
-     * @throws \Shop\Cadabra\Exception
-     * @return void
-     */
-    protected function checkProductProperty() {
-        $obj = new self::$productModel;
-        if (!$this->product instanceof $obj) {
-            throw new \Shop\Cadabra\Exception('Property "product" must be an instance of '. self::$productModel .'.', 1455030395);
-        }
-    }
 }

@@ -140,7 +140,7 @@ return array(
                         'Shop\\Cadabra\\Domain\\Model\\Attribute\\SelectAttribute'
                     ),
                 ),
-                'default' => 'Shop\\Cadabra\\Domain\\Model\\Information\\SelectAttribute',
+                'default' => 'Shop\\Cadabra\\Domain\\Model\\Attribute\\SelectAttribute',
             ),
         ),
 
