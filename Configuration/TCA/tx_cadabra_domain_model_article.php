@@ -132,8 +132,9 @@ return array(
         'features' => array(
             'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:article.features',
             'config' => array(
-                'type' => 'select',
+                'type' => 'inline',
                 'foreign_table' => 'tx_cadabra_domain_model_article_feature',
+                'foreign_field' => 'article',
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
