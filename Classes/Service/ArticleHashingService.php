@@ -72,6 +72,11 @@ class ArticleHashingService
     /**
      * Generates hashes for all possible articles from a product
      *
+     * This method will only generate a list of hashes.
+     * Use the ArticleFactory to generate full blown article objects.
+     *
+     * @see \Shop\Cadabra\Factory\ArticleFactory::generateArticlesFromProduct()
+     *
      * @param integer|\Shop\Cadabra\Domain\Model\Product $product
      * @return array
      */
@@ -94,12 +99,23 @@ class ArticleHashingService
     /**
      * Creates JSON string as identifier for an article
      *
+     * This method does not check if the hash is valid nor
+     * if there's a persisted article available.
+     *
+     * Use the ArticleFactory to verify that an valid
+     * article object can be build upon the given hash or
+     * an persisted object can be fetched from the database.
+     *
+     * @see \Shop\Cadabra\Factory\ArticleFactory::createArticleFromParameters()
+     *
      * @param integer $productIdentifier
      * @param array $attributes
      *
      * @return string
      */
     public static function createHash($productIdentifier, $attributes) {
+        ksort($attributes);
+
         $articleIdentifier = array(
             'p' => $productIdentifier,
             'a' => $attributes
@@ -127,10 +143,6 @@ class ArticleHashingService
         $json = json_decode($hash, true);
 
         $this->setProduct($json['p']);
-
-        //Build article feature objects
-        //TODO reset
-
 
         $features = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         foreach($json['a'] as $attribute => $attributeValue) {
@@ -260,11 +272,11 @@ class ArticleHashingService
 
             foreach ($arrays as $key => $value) {
                 $current = current($arrays[$key]);
+
+
                 $result[$i][$key] = $current;
             }
 
-            //set cursor on next element in the arrays, beginning with the last array
-            $arrays = array_reverse($arrays, true);
             foreach ($arrays as $k => $v) {
                 //if next returns true, then break
                 if (next($arrays[$k])) {
