@@ -94,4 +94,20 @@ class ArticleFactory
 
         return $articles;
     }
+
+    /**
+     * This method will either return an persisted article
+     * from the database or generate a new, transient article object.
+     *
+     * @param integer $product
+     * @param array $attributes
+     * @return \Shop\Cadabra\Domain\Model\Article
+     *
+     * @throws \Shop\Cadabra\Exception
+     */
+    public function generateArticleFromParameters($product, $attributes) {
+        $hash = $this->articleHashingService->createHash($product, $attributes);
+
+        return $this->articleHashingService->resolveHash($hash);
+    }
 }
