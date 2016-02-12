@@ -1,0 +1,60 @@
+{namespace c=Shop\Cadabra\ViewHelpers}
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	  xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
+<f:layout name="Default"/>
+<f:section name="Main">
+	<h1>Cadabra Administration Tool</h1>
+
+	<div class="panel panel-space panel-default">
+		<div class="panel-heading">Products</div>
+		<div class="table-fit collapse in" id="recordlist-tx_cadabra_domain_model_attribute" data-state="expanded">
+			<table data-table="tx_cadabra_domain_model_attribute" class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th nowrap="nowrap">Product title</th>
+						<th nowrap="nowrap">&nbsp;</th>
+						<th nowrap="nowrap">&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{products}" as="product" iteration="i">
+						<tr class="{f:if(condition: '{i.isFirst}', then: 'firstcol')} {f:if(condition: '{i.isLast}', then: 'lastcol')}">
+							<td class="">{product.title} ({product.uid})</td>
+							<td nowrap="nowrap">
+								<div class="btn-group" role="group">
+									<a class="btn btn-default" href="#" onclick="" title="">
+										<span class="t3js-icon icon icon-size-small icon-state-default icon-actions-open" data-identifier="actions-open">
+											<span class="icon-markup">
+												<img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-open.svg" width="16" height="16">
+											</span>
+										</span>
+									</a>
+
+									<a class="btn btn-default t3js-record-delete" href="#" title="">
+										<span class="t3js-icon icon icon-size-small icon-state-default icon-actions-edit-delete" data-identifier="actions-edit-delete">
+											<span class="icon-markup">
+												<img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-edit-delete.svg" width="16" height="16">
+											</span>
+										</span>
+									</a>
+
+
+								</div>
+								----->
+								<c:be.editLink parameters="edit[pages][1]=edit"
+											   title="Edit record"
+											   returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links">
+									test
+								</c:be.editLink>
+								<------
+							</td>
+							<td nowrap="nowrap"></td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</f:section>
+</html>

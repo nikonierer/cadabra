@@ -14,7 +14,7 @@ if (TYPO3_MODE === 'BE') {
         'productadministration',    // Submodule key
         '',                        // Position
         array(
-            'Backend' => 'index'
+            'Backend\Product' => 'index'
         ),
         array(
             'access' => 'user,group',

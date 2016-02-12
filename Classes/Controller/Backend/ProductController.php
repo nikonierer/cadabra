@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Controller;
+namespace Shop\Cadabra\Controller\Backend;
 
     /***************************************************************
      *  Copyright notice
@@ -21,10 +21,17 @@ namespace Shop\Cadabra\Controller;
      ***************************************************************/
 
 /**
- * BackendController
+ * ProductController
  */
-class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+
+    /**
+     * Backend Template Container
+     *
+     * @var \TYPO3\CMS\Backend\View\BackendTemplateView
+     */
+    protected $defaultViewObjectName = \TYPO3\CMS\Backend\View\BackendTemplateView::class;
 
     /**
      * @var \Shop\Cadabra\Domain\Repository\ProductRepository
@@ -48,13 +55,9 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @return void
      */
     public function indexAction() {
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->view);
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->controllerContext);
 
-
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->articleFactory->generateArticlesFromProduct(1, true));
-
-//        $hashes = $this->articleHashingService->generateHashes(1);
-//
-//        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($hashes);
 
         $products = $this->productRepository->findAll();
 
