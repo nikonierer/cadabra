@@ -23,31 +23,19 @@
 							<td class="">{product.title} ({product.uid})</td>
 							<td nowrap="nowrap">
 								<div class="btn-group" role="group">
-									<a class="btn btn-default" href="#" onclick="" title="">
+
+									<c:be.editLink class="btn btn-default"
+												   table="tx_cadabra_domain_model_product"
+												   uid="{product.uid}"
+												   title="Edit record"
+												   returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links">
 										<span class="t3js-icon icon icon-size-small icon-state-default icon-actions-open" data-identifier="actions-open">
 											<span class="icon-markup">
 												<img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-open.svg" width="16" height="16">
 											</span>
 										</span>
-									</a>
-
-									<a class="btn btn-default t3js-record-delete" href="#" title="">
-										<span class="t3js-icon icon icon-size-small icon-state-default icon-actions-edit-delete" data-identifier="actions-edit-delete">
-											<span class="icon-markup">
-												<img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-edit-delete.svg" width="16" height="16">
-											</span>
-										</span>
-									</a>
-
-
+									</c:be.editLink>
 								</div>
-								----->
-								<c:be.editLink parameters="edit[pages][1]=edit"
-											   title="Edit record"
-											   returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links">
-									test
-								</c:be.editLink>
-								<------
 							</td>
 							<td nowrap="nowrap"></td>
 						</tr>

@@ -54,17 +54,21 @@ class EditLinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBas
     /**
      * Crafts a link to edit a database record or create a new one
      *
-     * @param string $parameters Query string parameters
+     * @param string $table
+     * @param integer $uid
      * @param string $returnUrl URL to return to
      * @return string The <a> tag
      * @see \TYPO3\CMS\Backend\Utility::editOnClick()
      */
-    public function render($parameters, $returnUrl = '')
+    public function render($table, $uid, $returnUrl = '')
     {
-        $uri = 'alt_doc.php?' . $parameters;
-        if (!empty($returnUrl)) {
-            $uri .= '&returnUrl=' . rawurlencode($returnUrl);
-        }
+        $returnUrl = 'index.php?M=web_CadabraProductadministration&id=' . (int)\TYPO3\CMS\Core\Utility\GeneralUtility::_GET('id')
+            . '&moduleToken=' . \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->generateToken('moduleCall', 'web_CadabraProductadministration');
+
+        $uri = \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl('record_edit', [
+            'edit[' . $table . '][' . $uid . ']' => 'edit',
+            'returnUrl' => $returnUrl
+        ]);
 
         $this->tag->addAttribute('href', $uri);
         $this->tag->setContent($this->renderChildren());
