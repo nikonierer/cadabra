@@ -62,8 +62,10 @@ class EditLinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBas
      */
     public function render($table, $uid, $returnUrl = '')
     {
-        $returnUrl = 'index.php?M=web_CadabraProductadministration&id=' . (int)\TYPO3\CMS\Core\Utility\GeneralUtility::_GET('id')
-            . '&moduleToken=' . \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->generateToken('moduleCall', 'web_CadabraProductadministration');
+        if($returnUrl == '') {
+            $returnUrl = 'index.php?M=web_CadabraProductadministration&id=' . (int)\TYPO3\CMS\Core\Utility\GeneralUtility::_GET('id')
+                . '&moduleToken=' . \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->generateToken('moduleCall', 'web_CadabraProductadministration');
+        }
 
         $uri = \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl('record_edit', [
             'edit[' . $table . '][' . $uid . ']' => 'edit',
