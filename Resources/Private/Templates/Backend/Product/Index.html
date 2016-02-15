@@ -5,48 +5,13 @@
 <f:layout name="Default"/>
 <f:section name="Main">
 	<h1>Cadabra Administration Tool</h1>
-
-	<div class="panel panel-space panel-default">
-		<div class="panel-heading">Products</div>
-		<div class="table-fit collapse in" id="recordlist-tx_cadabra_domain_model_attribute" data-state="expanded">
-			<table data-table="tx_cadabra_domain_model_attribute" class="table table-striped table-hover">
-				<thead>
-					<tr>
-						<th nowrap="nowrap">Product title</th>
-						<th nowrap="nowrap">&nbsp;</th>
-						<th nowrap="nowrap">&nbsp;</th>
-					</tr>
-				</thead>
-				<tbody>
-					<f:for each="{products}" as="product" iteration="i">
-						<tr class="{f:if(condition: '{i.isFirst}', then: 'firstcol')} {f:if(condition: '{i.isLast}', then: 'lastcol')}">
-							<td class="">
-								<c:be.editLink table="tx_cadabra_domain_model_product"
-											   uid="{product.uid}"
-											   title="Edit record">
-									{product.title} ({product.uid})
-								</c:be.editLink>
-							</td>
-							<td nowrap="nowrap">
-								<div class="btn-group" role="group">
-									<c:be.editLink class="btn btn-default"
-												   table="tx_cadabra_domain_model_product"
-												   uid="{product.uid}"
-												   title="Edit record">
-										<span class="t3js-icon icon icon-size-small icon-state-default icon-actions-open" data-identifier="actions-open">
-											<span class="icon-markup">
-												<img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-open.svg" width="16" height="16">
-											</span>
-										</span>
-									</c:be.editLink>
-								</div>
-							</td>
-							<td nowrap="nowrap"></td>
-						</tr>
-					</f:for>
-				</tbody>
-			</table>
-		</div>
-	</div>
+	<f:if condition="{products}">
+		<f:then>
+			<f:render partial="Backend/Product/ListProducts" section="Main" arguments="{products: products}" />
+		</f:then>
+		<f:else>
+			<f:render partial="Backend/Product/ListPages" section="Main" arguments="{pages: pages}" />
+		</f:else>
+	</f:if>
 </f:section>
 </html>

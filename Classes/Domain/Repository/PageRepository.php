@@ -21,25 +21,27 @@ namespace Shop\Cadabra\Domain\Repository;
      ***************************************************************/
 
 /**
- * The repository for products
+ * The repository for pages
  */
-class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class PageRepository implements \TYPO3\CMS\Core\SingletonInterface
 {
+
     /**
-     * Initialize Object
+     * Finds all pages which containing records from the specified table
+     *
+     * @param string $table
+     * @return array
      */
-    public function initializeObject()
+    public function findPagesContainingRecordType($table)
     {
-        /** @var $querySettings \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings */
-        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+        $result = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
+            'page.*, count(item.uid) as items', // fields
+            'pages as page, '. $table .' as item', // table
+            'page.uid = item.pid', // where
+            'page.uid' // group by
+        );
 
-        if(TYPO3_MODE === 'BE') {
-            $id = (int)\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('id');
-            $querySettings->setStoragePageIds(array($id));
-        } else {
-            $querySettings->setRespectStoragePage(false);
-        }
-
-        $this->setDefaultQuerySettings($querySettings);
+        return $result;
     }
+
 }

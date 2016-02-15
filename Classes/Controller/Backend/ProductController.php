@@ -25,7 +25,6 @@ namespace Shop\Cadabra\Controller\Backend;
  */
 class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
-
     /**
      * Backend Template Container
      *
@@ -38,6 +37,12 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @inject
      */
     protected $productRepository;
+
+    /**
+     * @var \Shop\Cadabra\Domain\Repository\PageRepository
+     * @inject
+     */
+    protected $pageRepository;
 
     /**
      * @var \Shop\Cadabra\Service\ArticleHashingService
@@ -55,12 +60,10 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @return void
      */
     public function indexAction() {
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->view);
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->controllerContext);
-
-
+        $pages = $this->pageRepository->findPagesContainingRecordType('tx_cadabra_domain_model_product');
         $products = $this->productRepository->findAll();
 
         $this->view->assign('products', $products);
+        $this->view->assign('pages', $pages);
     }
 }
