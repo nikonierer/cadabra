@@ -20,15 +20,19 @@
 				<tbody>
 					<f:for each="{products}" as="product" iteration="i">
 						<tr class="{f:if(condition: '{i.isFirst}', then: 'firstcol')} {f:if(condition: '{i.isLast}', then: 'lastcol')}">
-							<td class="">{product.title} ({product.uid})</td>
+							<td class="">
+								<c:be.editLink table="tx_cadabra_domain_model_product"
+											   uid="{product.uid}"
+											   title="Edit record">
+									{product.title} ({product.uid})
+								</c:be.editLink>
+							</td>
 							<td nowrap="nowrap">
 								<div class="btn-group" role="group">
-
 									<c:be.editLink class="btn btn-default"
 												   table="tx_cadabra_domain_model_product"
 												   uid="{product.uid}"
-												   title="Edit record"
-												   returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links">
+												   title="Edit record">
 										<span class="t3js-icon icon icon-size-small icon-state-default icon-actions-open" data-identifier="actions-open">
 											<span class="icon-markup">
 												<img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-open.svg" width="16" height="16">
