@@ -83,6 +83,11 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $taxRate;
 
     /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Article>
+     */
+    protected $articles;
+
+    /**
      * The constructor
      */
     public function __construct()
@@ -97,6 +102,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->information = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**
@@ -211,5 +217,33 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->taxRate = $taxRate;
     }
 
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Article>
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
 
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Article> $articles
+     */
+    public function setArticles($articles)
+    {
+        $this->articles = $articles;
+    }
+
+    /**
+     * @param \Shop\Cadabra\Domain\Model\Article $article
+     */
+    public function addArticle($article) {
+        $this->articles->attach($article);
+    }
+
+    /**
+     * @param \Shop\Cadabra\Domain\Model\Article $article
+     */
+    public function removeArticle($article) {
+        $this->articles->detach($article);
+    }
 }

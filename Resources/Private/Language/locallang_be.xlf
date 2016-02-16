@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2016-02-16T10:04:47Z"
+          product-name="cadabra">
+        <header/>
+        <body>
+            <trans-unit id="module.listProducts">
+                <source>List products</source>
+            </trans-unit>
+            <trans-unit id="module.listArticles">
+                <source>List articles</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -34,7 +34,7 @@ class PageRepository implements \TYPO3\CMS\Core\SingletonInterface
      */
     public function findPagesContainingRecordType($table)
     {
-        $result = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
+        $result = $this->getDatabaseConnection()->exec_SELECTgetRows(
             'page.*, count(item.uid) as items', // fields
             'pages as page, '. $table .' as item', // table
             'page.uid = item.pid', // where
@@ -42,6 +42,16 @@ class PageRepository implements \TYPO3\CMS\Core\SingletonInterface
         );
 
         return $result;
+    }
+
+    /**
+     * Wrapper method for $GLOBALS['TYPO3_DB']
+     *
+     * @return \TYPO3\CMS\Core\Database\DatabaseConnection
+     */
+    protected function getDatabaseConnection()
+    {
+        return $GLOBALS['TYPO3_DB'];
     }
 
 }

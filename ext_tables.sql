@@ -35,6 +35,7 @@ CREATE TABLE tx_cadabra_domain_model_product (
 	categories int(11) DEFAULT '0' NOT NULL,
 	base_price double(11,2) DEFAULT '0.00' NOT NULL,
 	tax_rate double(11,2) DEFAULT '0.00' NOT NULL,
+	articles int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),

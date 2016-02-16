@@ -84,6 +84,11 @@ class ArticleFactory
             $articles->attach($article);
 
             if($persist && $article->_isNew()) {
+                $product = $article->getProduct();
+                $product->addArticle($article);
+
+                $this->productRepository->update($product);
+
                 $this->articleRepository->add($article);
             }
         }

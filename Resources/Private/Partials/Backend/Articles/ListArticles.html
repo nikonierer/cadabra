@@ -10,29 +10,32 @@
 				<thead>
 				<tr>
 					<th nowrap="nowrap">Product title</th>
-					<th nowrap="nowrap">Articles</th>
+					<th nowrap="nowrap">Attributes</th>
+					<td nowrap="nowrap">&nbsp;</td>
 					<th nowrap="nowrap">&nbsp;</th>
 				</tr>
 				</thead>
 				<tbody>
-				<f:for each="{products}" as="product" iteration="i">
+				<f:for each="{articles}" as="article" iteration="i">
 					<tr class="{f:if(condition: '{i.isFirst}', then: 'firstcol')} {f:if(condition: '{i.isLast}', then: 'lastcol')}">
 						<td class="">
-							<c:be.editLink table="tx_cadabra_domain_model_product"
-										   uid="{product.uid}"
+							<c:be.editLink table="tx_cadabra_domain_model_article"
+										   uid="{article.uid}"
 										   title="Edit record">
-								{product.title} ({product.uid})
+								{article.product.title} ({article.uid})
 							</c:be.editLink>
 						</td>
 						<td nowrap="nowrap">
-							<f:count>{product.articles}</f:count>
-							&nbsp;(<f:link.action action="generateArticles" arguments="{product: product}">Generate articles</f:link.action>)
+							<f:for each="{article.features}" as="feature" iteration="n">
+								{feature.attribute.name}: {feature.attributeValue.value}{f:if(condition: n.isLast, else: ',')}
+							</f:for>
+
 						</td>
 						<td nowrap="nowrap">
 							<div class="btn-group" role="group">
 								<c:be.editLink class="btn btn-default"
-											   table="tx_cadabra_domain_model_product"
-											   uid="{product.uid}"
+											   table="tx_cadabra_domain_model_article"
+											   uid="{article.uid}"
 											   title="Edit record">
 										<span class="t3js-icon icon icon-size-small icon-state-default icon-actions-open" data-identifier="actions-open">
 											<span class="icon-markup">
@@ -42,6 +45,7 @@
 								</c:be.editLink>
 							</div>
 						</td>
+						<td nowrap="nowrap"></td>
 					</tr>
 				</f:for>
 				</tbody>

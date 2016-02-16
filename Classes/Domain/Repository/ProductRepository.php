@@ -23,23 +23,7 @@ namespace Shop\Cadabra\Domain\Repository;
 /**
  * The repository for products
  */
-class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class ProductRepository extends AbstractRepository
 {
-    /**
-     * Initialize Object
-     */
-    public function initializeObject()
-    {
-        /** @var $querySettings \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings */
-        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
 
-        if(TYPO3_MODE === 'BE') {
-            $id = (int)\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('id');
-            $querySettings->setStoragePageIds(array($id));
-        } else {
-            $querySettings->setRespectStoragePage(false);
-        }
-
-        $this->setDefaultQuerySettings($querySettings);
-    }
 }

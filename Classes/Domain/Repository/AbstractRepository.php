@@ -21,23 +21,25 @@ namespace Shop\Cadabra\Domain\Repository;
      ***************************************************************/
 
 /**
- * The repository for articles
+ * The abstract repository
  */
-class ArticleRepository extends AbstractRepository
+class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     /**
-     * Returns articles by hash
-     *
-     * @param string $hash
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     * Initialize Object
      */
-    public function findByHash($hash) {
-        $query = $this->createQuery();
+    public function initializeObject()
+    {
+        /** @var $querySettings \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings */
+        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
 
-        $query->matching(
-            $query->equals('hash', $hash)
-        );
+        if(TYPO3_MODE === 'BE') {
+            $id = (int)\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('id');
+            $querySettings->setStoragePageIds(array($id));
+        } else {
+            $querySettings->setRespectStoragePage(false);
+        }
 
-        return $query->execute()->getFirst();
+        $this->setDefaultQuerySettings($querySettings);
     }
 }

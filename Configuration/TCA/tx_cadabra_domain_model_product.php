@@ -188,5 +188,16 @@ return array(
                 'maxitems' => 9999,
             ),
         ),
+        'articles' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.articles',
+            'config' => array(
+                'type' => 'inline',
+                'foreign_table' => 'tx_cadabra_domain_model_article_article',
+                'foreign_field' => 'product',
+                'size' => 10,
+                'autoSizeMax' => 50,
+                'maxitems' => 9999,
+            ),
+        ),
     ),
 );

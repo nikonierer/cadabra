@@ -22,6 +22,8 @@ namespace Shop\Cadabra\Controller\Backend;
 
 /**
  * ProductController
+ *
+ * @property \TYPO3\CMS\Backend\View\BackendTemplateView $view
  */
 class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
@@ -33,10 +35,23 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     protected $defaultViewObjectName = \TYPO3\CMS\Backend\View\BackendTemplateView::class;
 
     /**
+     * Contains the current page identifier
+     *
+     * @var integer
+     */
+    protected $pageUid;
+
+    /**
      * @var \Shop\Cadabra\Domain\Repository\ProductRepository
      * @inject
      */
     protected $productRepository;
+
+    /**
+     * @var \Shop\Cadabra\Domain\Repository\ArticleRepository
+     * @inject
+     */
+    protected $articleRepository;
 
     /**
      * @var \Shop\Cadabra\Domain\Repository\PageRepository
@@ -57,13 +72,112 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     protected $articleFactory;
 
     /**
+     * @var \TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder
+     * @inject
+     */
+    protected $uriBuilder;
+
+    /**
+     * Initialize action
+     *
      * @return void
      */
-    public function indexAction() {
+    public function initializeAction()
+    {
+        $this->pageUid = (int)\TYPO3\CMS\Core\Utility\GeneralUtility::_GET('id');
+        parent::initializeAction();
+    }
+
+    /**
+     * Create doc header drop down
+     *
+     * @return void
+     */
+    protected function createMenu()
+    {
+        $this->uriBuilder->setRequest($this->request);
+
+        $menu = $this->view->getModuleTemplate()->getDocHeaderComponent()->getMenuRegistry()->makeMenu();
+        $menu->setIdentifier('cadabra');
+
+        $actions = [
+            ['action' => 'index', 'label' => 'listProducts'],
+            ['action' => 'listArticles', 'label' => 'listArticles']
+        ];
+
+        foreach ($actions as $action) {
+            $item = $menu->makeMenuItem()
+                ->setTitle($this->getLanguageService()->sL('LLL:EXT:cadabra/Resources/Private/Language/locallang_be.xlf:module.' . $action['label']))
+                ->setHref($this->uriBuilder->reset()->uriFor($action['action'], [], 'Backend\Product'))
+                ->setActive($this->request->getControllerActionName() === $action['action']);
+
+            $menu->addMenuItem($item);
+        }
+
+        $this->view->getModuleTemplate()->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
+        $pageInfo = \TYPO3\CMS\Backend\Utility\BackendUtility::readPageAccess($this->pageUid, '');
+        $this->view->getModuleTemplate()->getDocHeaderComponent()->setMetaInformation($pageInfo);
+    }
+
+    /**
+     * Initialize view
+     *
+     * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
+     */
+    protected function initializeView(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view)
+    {
+        /** @var \TYPO3\CMS\Backend\View\BackendTemplateView $view */
+        parent::initializeView($view);
+
+        $view->getModuleTemplate()->getDocHeaderComponent()->setMetaInformation([]);
+        $pageRenderer = $this->view->getModuleTemplate()->getPageRenderer();
+        $pageRenderer->loadRequireJsModule('TYPO3/CMS/Backend/ClickMenu');
+
+        $this->createMenu();
+    }
+
+    /**
+     * @return void
+     */
+    public function indexAction()
+    {
         $pages = $this->pageRepository->findPagesContainingRecordType('tx_cadabra_domain_model_product');
         $products = $this->productRepository->findAll();
 
         $this->view->assign('products', $products);
         $this->view->assign('pages', $pages);
+    }
+
+    /**
+     * @return void
+     */
+    public function listArticlesAction()
+    {
+        $articles = $this->articleRepository->findByPid($this->pageUid);
+        $pages = $this->pageRepository->findPagesContainingRecordType('tx_cadabra_domain_model_article');
+
+        $this->view->assign('articles', $articles);
+        $this->view->assign('pages', $pages);
+    }
+
+    /**
+     * @param \Shop\Cadabra\Domain\Model\Product $product
+     * @return void
+     */
+    public function generateArticlesAction($product)
+    {
+        $articles = $this->articleFactory->generateArticlesFromProduct($product, true);
+
+        $this->redirect('listArticles');
+    }
+
+    /**
+     * Wrapper method for $GLOBALS['LANG']
+     *
+     * @return \TYPO3\CMS\Lang\LanguageService
+     */
+    protected function getLanguageService()
+    {
+        return $GLOBALS['LANG'];
     }
 }

@@ -1,0 +1,17 @@
+{namespace c=Shop\Cadabra\ViewHelpers}
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	  xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
+<f:layout name="Default"/>
+<f:section name="Main">
+	<h1>Cadabra Administration Tool</h1>
+	<f:if condition="{articles}">
+		<f:then>
+			<f:render partial="Backend/Articles/ListArticles" section="Main" arguments="{articles: articles}" />
+		</f:then>
+		<f:else>
+			<f:render partial="Backend/Articles/ListPages" section="Main" arguments="{pages: pages}" />
+		</f:else>
+	</f:if>
+</f:section>
+</html>

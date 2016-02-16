@@ -23,18 +23,15 @@ namespace Shop\Cadabra\Domain\Repository;
 /**
  * The repository for attributes
  */
-class AttributeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class AttributeRepository extends AbstractRepository
 {
     /**
      * Initialize Object
      */
     public function initializeObject()
     {
-        $this->objectType = 'Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute';
+        parent::initializeObject();
 
-        /** @var $querySettings \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings */
-        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
-        $querySettings->setRespectStoragePage(false);
-        $this->setDefaultQuerySettings($querySettings);
+        $this->objectType = 'Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute';
     }
 }

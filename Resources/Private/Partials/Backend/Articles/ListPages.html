@@ -1,0 +1,41 @@
+{namespace c=Shop\Cadabra\ViewHelpers}
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	  xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
+<f:section name="Main">
+<f:be.infobox title="No articles found"
+			  message="The current page doesn't contain any articles."
+			  state="-1" />
+	<div class="panel panel-space panel-default">
+		<div class="panel-heading">Pages which contain articles</div>
+		<div class="table-fit collapse in" data-state="expanded">
+			<table class="table table-striped table-hover">
+				<thead>
+				<tr>
+					<th nowrap="nowrap">Page</th>
+					<th nowrap="nowrap">Articles</th>
+					<th nowrap="nowrap">&nbsp;</th>
+				</tr>
+				</thead>
+				<tbody>
+				<f:for each="{pages}" as="page" iteration="i">
+					<tr class="{f:if(condition: '{i.isFirst}', then: 'firstcol')} {f:if(condition: '{i.isLast}', then: 'lastcol')}">
+						<td class="">
+							<c:be.switchPage pageId="{page.uid}">
+								{page.title} ({page.uid})
+							</c:be.switchPage>
+						</td>
+						<td nowrap="nowrap">
+							<c:be.switchPage pageId="{page.uid}">
+								{page.items}
+							</c:be.switchPage>
+						</td>
+						<td nowrap="nowrap"></td>
+					</tr>
+				</f:for>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</f:section>
+</html>
