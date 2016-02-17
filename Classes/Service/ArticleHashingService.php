@@ -62,12 +62,12 @@ class ArticleHashingService
     /**
      * @var array
      */
-    protected $attributes = null;
+    protected $attributes = array();
 
     /**
      * @var array
      */
-    protected $attributeCombinations = null;
+    protected $attributeCombinations = array();
 
     /**
      * Generates hashes for all possible articles from a product
@@ -89,8 +89,12 @@ class ArticleHashingService
 
         $hashes = array();
 
-        foreach($this->attributeCombinations as $attributes) {
-            $hashes[] = self::createHash($this->product->getUid(), $attributes);
+        if(count($this->attributes) === 0) {
+             $hashes[] = self::createHash($this->product->getUid(), array());
+        } else {
+            foreach ($this->attributeCombinations as $attributes) {
+                $hashes[] = self::createHash($this->product->getUid(), $attributes);
+            }
         }
 
         return $hashes;
@@ -199,8 +203,8 @@ class ArticleHashingService
      * @return void
      */
     public function reset() {
-        $this->attributes = null;
-        $this->attributeCombinations = null;
+        $this->attributes = array();
+        $this->attributeCombinations = array();
         $this->product = null;
     }
 
