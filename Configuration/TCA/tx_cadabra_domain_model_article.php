@@ -112,6 +112,11 @@ return array(
                 ),
             ),
         ),
+        'pid' => array(
+            'config' => array(
+                'type' => 'passthrough',
+            )
+        ),
         'hash' => array(
             'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:article.hash',
             'config' => array(

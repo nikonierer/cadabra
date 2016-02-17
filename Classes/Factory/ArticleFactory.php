@@ -81,6 +81,7 @@ class ArticleFactory
 
         foreach($hashes as $hash) {
             $article = $this->articleHashingService->resolveHash($hash);
+            $article->setPid(self::getCurrentPageId());
             $articles->attach($article);
 
             if($persist && $article->_isNew()) {
@@ -114,5 +115,14 @@ class ArticleFactory
         $hash = $this->articleHashingService->createHash($product, $attributes);
 
         return $this->articleHashingService->resolveHash($hash);
+    }
+
+    /**
+     * Returns current page identifier
+     *
+     * @return integer
+     */
+    protected static function getCurrentPageId() {
+        return (int)\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('id');
     }
 }
