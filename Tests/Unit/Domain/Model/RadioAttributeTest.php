@@ -1,6 +1,6 @@
 <?php
 
-namespace Shop\Cadabra\Tests\Unit\Domain\Model;
+namespace Abra\Cadabra\Tests\Unit\Domain\Model;
 
     /***************************************************************
      *  Copyright notice
@@ -27,7 +27,7 @@ namespace Shop\Cadabra\Tests\Unit\Domain\Model;
      ***************************************************************/
 
 /**
- * Test case for class \Shop\Cadabra\Domain\Model\RadioAttribute.
+ * Test case for class \Abra\Cadabra\Domain\Model\RadioAttribute.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -37,13 +37,13 @@ namespace Shop\Cadabra\Tests\Unit\Domain\Model;
 class RadioAttributeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
-     * @var \Shop\Cadabra\Domain\Model\RadioAttribute
+     * @var \Abra\Cadabra\Domain\Model\RadioAttribute
      */
     protected $subject = null;
 
     public function setUp()
     {
-        $this->subject = new \Shop\Cadabra\Domain\Model\RadioAttribute();
+        $this->subject = new \Abra\Cadabra\Domain\Model\RadioAttribute();
     }
 
     public function tearDown()

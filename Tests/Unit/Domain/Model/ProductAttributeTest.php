@@ -1,6 +1,6 @@
 <?php
 
-namespace Shop\Cadabra\Tests\Unit\Domain\Model;
+namespace Abra\Cadabra\Tests\Unit\Domain\Model;
 
     /***************************************************************
      *  Copyright notice
@@ -27,7 +27,7 @@ namespace Shop\Cadabra\Tests\Unit\Domain\Model;
      ***************************************************************/
 
 /**
- * Test case for class \Shop\Cadabra\Domain\Model\ProductAttribute.
+ * Test case for class \Abra\Cadabra\Domain\Model\ProductAttribute.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -37,13 +37,13 @@ namespace Shop\Cadabra\Tests\Unit\Domain\Model;
 class ProductAttributeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
-     * @var \Shop\Cadabra\Domain\Model\ProductAttribute
+     * @var \Abra\Cadabra\Domain\Model\ProductAttribute
      */
     protected $subject = null;
 
     public function setUp()
     {
-        $this->subject = new \Shop\Cadabra\Domain\Model\ProductAttribute();
+        $this->subject = new \Abra\Cadabra\Domain\Model\ProductAttribute();
     }
 
     public function tearDown()

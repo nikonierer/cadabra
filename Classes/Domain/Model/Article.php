@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Domain\Model;
+namespace Abra\Cadabra\Domain\Model;
 
     /***************************************************************
      *
@@ -32,7 +32,7 @@ namespace Shop\Cadabra\Domain\Model;
 class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
-     * @var \Shop\Cadabra\Domain\Model\Product
+     * @var \Abra\Cadabra\Domain\Model\Product
      */
     protected $product;
 
@@ -42,13 +42,13 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $hash;
 
     /**
-     * @var \Shop\Cadabra\Domain\Model\Information\AbstractInformation
+     * @var \Abra\Cadabra\Domain\Model\Information\AbstractInformation
      */
     protected $information;
 
     /**
      * @lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Shop\Cadabra\Domain\Model\ArticleFeature>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\ArticleFeature>
      */
     protected $features;
 

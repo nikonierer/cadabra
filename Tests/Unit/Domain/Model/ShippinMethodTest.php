@@ -1,6 +1,6 @@
 <?php
 
-namespace Shop\Cadabra\Tests\Unit\Domain\Model;
+namespace Abra\Cadabra\Tests\Unit\Domain\Model;
 
     /***************************************************************
      *  Copyright notice
@@ -27,7 +27,7 @@ namespace Shop\Cadabra\Tests\Unit\Domain\Model;
      ***************************************************************/
 
 /**
- * Test case for class \Shop\Cadabra\Domain\Model\ShippinMethod.
+ * Test case for class \Abra\Cadabra\Domain\Model\ShippinMethod.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -37,13 +37,13 @@ namespace Shop\Cadabra\Tests\Unit\Domain\Model;
 class ShippinMethodTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
-     * @var \Shop\Cadabra\Domain\Model\ShippinMethod
+     * @var \Abra\Cadabra\Domain\Model\ShippinMethod
      */
     protected $subject = null;
 
     public function setUp()
     {
-        $this->subject = new \Shop\Cadabra\Domain\Model\ShippinMethod();
+        $this->subject = new \Abra\Cadabra\Domain\Model\ShippinMethod();
     }
 
     public function tearDown()

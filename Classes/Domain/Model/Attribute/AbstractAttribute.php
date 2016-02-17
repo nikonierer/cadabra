@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Domain\Model\Attribute;
+namespace Abra\Cadabra\Domain\Model\Attribute;
 
     /***************************************************************
      *
@@ -41,7 +41,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Contains relations to the values of the attribute
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AttributeValue>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Attribute\AttributeValue>
      */
     protected $values;
 
@@ -49,12 +49,12 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Contains relations to further information
      *
      * @lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     protected $information;
 
     /**
-     * @var \Shop\Cadabra\Domain\Model\PriceInfluencer;
+     * @var \Abra\Cadabra\Domain\Model\PriceInfluencer;
      */
     protected $priceInfluencer;
 
@@ -92,7 +92,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AttributeValue>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Attribute\AttributeValue>
      */
     public function getValues()
     {
@@ -100,7 +100,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AttributeValue> $values
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Attribute\AttributeValue> $values
      */
     public function setValues($values)
     {
@@ -108,7 +108,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     public function getInformation()
     {
@@ -116,7 +116,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation> $information
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Information\AbstractInformation> $information
      */
     public function setInformation($information)
     {
@@ -124,7 +124,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \Shop\Cadabra\Domain\Model\PriceInfluencer
+     * @return \Abra\Cadabra\Domain\Model\PriceInfluencer
      */
     public function getPriceInfluencer()
     {
@@ -132,7 +132,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \Shop\Cadabra\Domain\Model\PriceInfluencer $priceInfluencer
+     * @param \Abra\Cadabra\Domain\Model\PriceInfluencer $priceInfluencer
      */
     public function setPriceInfluencer($priceInfluencer)
     {

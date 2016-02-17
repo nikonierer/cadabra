@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\ViewHelpers\Be;
+namespace Abra\Cadabra\ViewHelpers\Be;
 
 
     /***************************************************************

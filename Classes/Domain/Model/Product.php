@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Domain\Model;
+namespace Abra\Cadabra\Domain\Model;
 
     /***************************************************************
      *
@@ -49,7 +49,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Contains relations to the product attributes
      *
      * @lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Attribute\AbstractAttribute>
      */
     protected $attributes;
 
@@ -57,14 +57,14 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Contains relations to further information
      *
      * @lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     protected $information;
 
     /**
      * Contains relations to the categories
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Category>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Category>
      */
     protected $categories;
 
@@ -83,7 +83,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $taxRate;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Article>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Article>
      */
     protected $articles;
 
@@ -138,7 +138,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Attribute\AbstractAttribute>
      */
     public function getAttributes()
     {
@@ -146,7 +146,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute> $attributes
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Attribute\AbstractAttribute> $attributes
      */
     public function setAttributes($attributes)
     {
@@ -154,7 +154,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     public function getInformation()
     {
@@ -162,7 +162,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Information\AbstractInformation> $information
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Information\AbstractInformation> $information
      */
     public function setInformation($information)
     {
@@ -170,7 +170,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Category>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Category>
      */
     public function getCategories()
     {
@@ -178,7 +178,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Category> $categories
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Category> $categories
      */
     public function setCategories($categories)
     {
@@ -218,7 +218,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Article>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Article>
      */
     public function getArticles()
     {
@@ -226,7 +226,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Shop\Cadabra\Domain\Model\Article> $articles
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\Article> $articles
      */
     public function setArticles($articles)
     {
@@ -234,14 +234,14 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \Shop\Cadabra\Domain\Model\Article $article
+     * @param \Abra\Cadabra\Domain\Model\Article $article
      */
     public function addArticle($article) {
         $this->articles->attach($article);
     }
 
     /**
-     * @param \Shop\Cadabra\Domain\Model\Article $article
+     * @param \Abra\Cadabra\Domain\Model\Article $article
      */
     public function removeArticle($article) {
         $this->articles->detach($article);

@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Domain\Repository;
+namespace Abra\Cadabra\Domain\Repository;
 
     /***************************************************************
      *  Copyright notice
@@ -32,6 +32,6 @@ class AttributeRepository extends AbstractRepository
     {
         parent::initializeObject();
 
-        $this->objectType = 'Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute';
+        $this->objectType = 'Abra\Cadabra\Domain\Model\Attribute\AbstractAttribute';
     }
 }

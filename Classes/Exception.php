@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra;
+namespace Abra\Cadabra;
 
 
     /***************************************************************

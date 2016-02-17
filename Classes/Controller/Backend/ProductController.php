@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Controller\Backend;
+namespace Abra\Cadabra\Controller\Backend;
 
     /***************************************************************
      *  Copyright notice
@@ -42,31 +42,31 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     protected $pageUid;
 
     /**
-     * @var \Shop\Cadabra\Domain\Repository\ProductRepository
+     * @var \Abra\Cadabra\Domain\Repository\ProductRepository
      * @inject
      */
     protected $productRepository;
 
     /**
-     * @var \Shop\Cadabra\Domain\Repository\ArticleRepository
+     * @var \Abra\Cadabra\Domain\Repository\ArticleRepository
      * @inject
      */
     protected $articleRepository;
 
     /**
-     * @var \Shop\Cadabra\Domain\Repository\PageRepository
+     * @var \Abra\Cadabra\Domain\Repository\PageRepository
      * @inject
      */
     protected $pageRepository;
 
     /**
-     * @var \Shop\Cadabra\Service\ArticleHashingService
+     * @var \Abra\Cadabra\Service\ArticleHashingService
      * @inject
      */
     protected $articleHashingService;
 
     /**
-     * @var \Shop\Cadabra\Factory\ArticleFactory
+     * @var \Abra\Cadabra\Factory\ArticleFactory
      * @inject
      */
     protected $articleFactory;
@@ -161,7 +161,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * @param \Shop\Cadabra\Domain\Model\Product $product
+     * @param \Abra\Cadabra\Domain\Model\Product $product
      * @return void
      */
     public function generateArticlesAction($product)

@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Factory;
+namespace Abra\Cadabra\Factory;
 
 
     /***************************************************************
@@ -34,13 +34,13 @@ class ArticleFactory
 {
     /**
      * @inject
-     * @var \Shop\Cadabra\Domain\Repository\ArticleRepository
+     * @var \Abra\Cadabra\Domain\Repository\ArticleRepository
      */
     protected $articleRepository;
 
     /**
      * @inject
-     * @var \Shop\Cadabra\Service\ArticleHashingService
+     * @var \Abra\Cadabra\Service\ArticleHashingService
      */
     protected $articleHashingService;
 
@@ -52,14 +52,14 @@ class ArticleFactory
 
     /**
      * @inject
-     * @var \Shop\Cadabra\Domain\Repository\ProductRepository
+     * @var \Abra\Cadabra\Domain\Repository\ProductRepository
      */
     protected $productRepository;
 
     /**
      * Generates articles based on an product
      *
-     * @param integer|\Shop\Cadabra\Domain\Model\Product $product
+     * @param integer|\Abra\Cadabra\Domain\Model\Product $product
      * @param boolean $persist
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
      */
@@ -107,9 +107,9 @@ class ArticleFactory
      *
      * @param integer $product
      * @param array $attributes
-     * @return \Shop\Cadabra\Domain\Model\Article
+     * @return \Abra\Cadabra\Domain\Model\Article
      *
-     * @throws \Shop\Cadabra\Exception
+     * @throws \Abra\Cadabra\Exception
      */
     public function generateArticleFromParameters($product, $attributes) {
         $hash = $this->articleHashingService->createHash($product, $attributes);

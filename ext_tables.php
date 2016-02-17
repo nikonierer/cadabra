@@ -9,7 +9,7 @@ if (TYPO3_MODE === 'BE') {
      * Registers a Backend Module
      */
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'Shop.' . $_EXTKEY,
+        'Abra.' . $_EXTKEY,
         'web',     // Make module a submodule of 'web'
         'productadministration',    // Submodule key
         '',                        // Position

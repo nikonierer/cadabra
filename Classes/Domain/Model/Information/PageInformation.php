@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Domain\Model\Information;
+namespace Abra\Cadabra\Domain\Model\Information;
 
     /***************************************************************
      *

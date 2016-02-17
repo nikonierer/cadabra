@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Domain\Repository;
+namespace Abra\Cadabra\Domain\Repository;
 
     /***************************************************************
      *  Copyright notice

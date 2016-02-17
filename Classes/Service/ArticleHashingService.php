@@ -1,5 +1,5 @@
 <?php
-namespace Shop\Cadabra\Service;
+namespace Abra\Cadabra\Service;
 
 
     /***************************************************************
@@ -32,30 +32,30 @@ namespace Shop\Cadabra\Service;
  */
 class ArticleHashingService
 {
-    static protected $productModel = '\Shop\Cadabra\Domain\Model\Product';
-    static protected $articleModel = '\Shop\Cadabra\Domain\Model\Article';
-    static protected $attributeValue = '\Shop\Cadabra\Domain\Model\Attribute\AttributeValue';
+    static protected $productModel = '\Abra\Cadabra\Domain\Model\Product';
+    static protected $articleModel = '\Abra\Cadabra\Domain\Model\Article';
+    static protected $attributeValue = '\Abra\Cadabra\Domain\Model\Attribute\AttributeValue';
 
     /**
      * @inject
-     * @var \Shop\Cadabra\Domain\Repository\ProductRepository
+     * @var \Abra\Cadabra\Domain\Repository\ProductRepository
      */
     protected $productRepository;
 
     /**
      * @inject
-     * @var \Shop\Cadabra\Domain\Repository\ArticleRepository
+     * @var \Abra\Cadabra\Domain\Repository\ArticleRepository
      */
     protected $articleRepository;
 
     /**
      * @inject
-     * @var \Shop\Cadabra\Domain\Repository\AttributeRepository
+     * @var \Abra\Cadabra\Domain\Repository\AttributeRepository
      */
     protected $attributeRepository;
 
     /**
-     * @var \Shop\Cadabra\Domain\Model\Product
+     * @var \Abra\Cadabra\Domain\Model\Product
      */
     protected $product = null;
 
@@ -75,9 +75,9 @@ class ArticleHashingService
      * This method will only generate a list of hashes.
      * Use the ArticleFactory to generate full blown article objects.
      *
-     * @see \Shop\Cadabra\Factory\ArticleFactory::generateArticlesFromProduct()
+     * @see \Abra\Cadabra\Factory\ArticleFactory::generateArticlesFromProduct()
      *
-     * @param integer|\Shop\Cadabra\Domain\Model\Product $product
+     * @param integer|\Abra\Cadabra\Domain\Model\Product $product
      * @return array
      */
     public function generateHashes($product) {
@@ -110,7 +110,7 @@ class ArticleHashingService
      * article object can be build upon the given hash or
      * an persisted object can be fetched from the database.
      *
-     * @see \Shop\Cadabra\Factory\ArticleFactory::createArticleFromParameters()
+     * @see \Abra\Cadabra\Factory\ArticleFactory::createArticleFromParameters()
      *
      * @param integer $productIdentifier
      * @param array $attributes
@@ -132,8 +132,8 @@ class ArticleHashingService
      * Returns an article object based on the hash identifier
      *
      * @param string $hash
-     * @throws \Shop\Cadabra\Exception
-     * @return \Shop\Cadabra\Domain\Model\Article
+     * @throws \Abra\Cadabra\Exception
+     * @return \Abra\Cadabra\Domain\Model\Article
      */
     public function resolveHash($hash) {
         $this->reset();
@@ -153,17 +153,17 @@ class ArticleHashingService
             /**
              * @TODO: Use property mapper?!
              */
-            $feature = new \Shop\Cadabra\Domain\Model\ArticleFeature();
+            $feature = new \Abra\Cadabra\Domain\Model\ArticleFeature();
             $feature->setProduct($this->product);
 
-            /** @var \Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute $attributeObject */
+            /** @var \Abra\Cadabra\Domain\Model\Attribute\AbstractAttribute $attributeObject */
             $attributeObject = $this->attributeRepository->findByIdentifier($attribute);
             if($attributeObject === null) {
-                throw new \Shop\Cadabra\Exception('Attribute with identifier '. $attribute .' is not available in the database.', 1455116486);
+                throw new \Abra\Cadabra\Exception('Attribute with identifier '. $attribute .' is not available in the database.', 1455116486);
             }
             $feature->setAttribute($attributeObject);
 
-            /** @var \Shop\Cadabra\Domain\Model\Attribute\AttributeValue $value */
+            /** @var \Abra\Cadabra\Domain\Model\Attribute\AttributeValue $value */
             foreach ($attributeObject->getValues() as $value) {
                 //Check if attribute value belongs to supplied attribute
                 if($value->getUid() == $attributeValue) {
@@ -173,7 +173,7 @@ class ArticleHashingService
             //No corresponding record found in attribute value list
             $obj = new self::$attributeValue;
             if (!$feature->getAttributeValue() instanceof $obj) {
-                throw new \Shop\Cadabra\Exception(
+                throw new \Abra\Cadabra\Exception(
                     'Attribute value with identifier '. $attributeValue .'does not belong to the attribute with identifier'. $attribute,
                     1455117095
                 );
@@ -185,7 +185,7 @@ class ArticleHashingService
         /**
          * @TODO: Use property mapper?!
          */
-        $article = new \Shop\Cadabra\Domain\Model\Article();
+        $article = new \Abra\Cadabra\Domain\Model\Article();
         $article->setProduct($this->product);
         $article->setFeatures($features);
         $article->setHash($hash);
@@ -211,18 +211,18 @@ class ArticleHashingService
     /**
      * Sets property product based on object or identifier
      *
-     * @param integer|\Shop\Cadabra\Domain\Model\Product $product
-     * @throws \Shop\Cadabra\Exception
+     * @param integer|\Abra\Cadabra\Domain\Model\Product $product
+     * @throws \Abra\Cadabra\Exception
      */
     protected function setProduct($product) {
         $obj = new self::$productModel;
         if (!$product instanceof $obj && !is_integer($product)) {
-            throw new \Shop\Cadabra\Exception('Property "product" must be an instance of '. self::$productModel .' or an integer.', 1455030395);
+            throw new \Abra\Cadabra\Exception('Property "product" must be an instance of '. self::$productModel .' or an integer.', 1455030395);
         } elseif(is_integer($product)) {
             $this->product = $this->productRepository->findByIdentifier($product);
 
             if(!$this->product instanceof $obj) {
-                throw new \Shop\Cadabra\Exception('Product could not be fetched from database.', 1455102729);
+                throw new \Abra\Cadabra\Exception('Product could not be fetched from database.', 1455102729);
             }
         } else {
             $this->product = $product;
@@ -238,11 +238,11 @@ class ArticleHashingService
         $attributes = $this->product->getAttributes();
         $attributeArray = array();
 
-        /** @var \Shop\Cadabra\Domain\Model\Attribute\AbstractAttribute $attribute */
+        /** @var \Abra\Cadabra\Domain\Model\Attribute\AbstractAttribute $attribute */
         foreach ($attributes as $attribute) {
             $attributeArray[$attribute->getUid()] = array();
 
-            /** @var \Shop\Cadabra\Domain\Model\Attribute\AttributeValue $value */
+            /** @var \Abra\Cadabra\Domain\Model\Attribute\AttributeValue $value */
             foreach ($attribute->getValues() as $value) {
                 $attributeArray[$attribute->getUid()][] = $value->getUid();
             }
