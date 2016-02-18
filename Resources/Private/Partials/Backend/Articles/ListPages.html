@@ -21,12 +21,12 @@
 				<f:for each="{pages}" as="page" iteration="i">
 					<tr class="{f:if(condition: '{i.isFirst}', then: 'firstcol')} {f:if(condition: '{i.isLast}', then: 'lastcol')}">
 						<td class="">
-							<c:be.switchPage pageId="{page.uid}">
+							<c:be.switchPage pageId="{page.uid}" action="listArticles">
 								{page.title} ({page.uid})
 							</c:be.switchPage>
 						</td>
 						<td nowrap="nowrap">
-							<c:be.switchPage pageId="{page.uid}">
+							<c:be.switchPage pageId="{page.uid}" action="listArticles">
 								{page.items}
 							</c:be.switchPage>
 						</td>

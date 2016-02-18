@@ -56,23 +56,35 @@ class SwitchPageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagB
      *
      * @param integer $pageId
      * @param string $returnUrl URL to return to
+     * @param string $action
+     * @param string $controller
      * @return string The <a> tag
      * @see \TYPO3\CMS\Backend\Utility::editOnClick()
      */
-    public function render($pageId, $returnUrl = '')
+    public function render($pageId, $returnUrl = '', $action = null, $controller = null)
     {
         if($returnUrl == '') {
             $returnUrl = 'index.php?M=web_CadabraProductadministration&id=' . (int)\TYPO3\CMS\Core\Utility\GeneralUtility::_GET('id')
                 . '&moduleToken=' . \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->generateToken('moduleCall', 'web_CadabraProductadministration');
         }
 
+        $params = array(
+            'id' => $pageId,
+            'returnUrl' => $returnUrl
+        );
+
+        if($action) {
+            $params['tx_cadabra_web_cadabraproductadministration[action]'] = $action;
+        }
+
+        if($controller) {
+            $params['tx_cadabra_web_cadabraproductadministration[controller]'] = $controller;
+        }
+
         \TYPO3\CMS\Backend\Utility\BackendUtility::openPageTree((int)$pageId,false);
         \TYPO3\CMS\Backend\Utility\BackendUtility::setUpdateSignal('updatePageTree');
 
-        $uri = \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl('web_CadabraProductadministration', [
-            'id' => $pageId,
-            'returnUrl' => $returnUrl
-        ]);
+        $uri = \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl('web_CadabraProductadministration', $params);
 
         $this->tag->addAttribute('href', $uri);
         $this->tag->setContent($this->renderChildren());
