@@ -132,7 +132,7 @@ return array(
                     ),
                     array(
                         'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.record_type.tt_content',
-                        'Abra\\Cadabra\\Domain\\Model\\Information\\TtContent'
+                        'Abra\\Cadabra\\Domain\\Model\\Information\\TtContentInformation'
                     ),
                     array(
                         'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.record_type.text',
