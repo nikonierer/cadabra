@@ -53,6 +53,25 @@
             <trans-unit id="information.items">
                 <source>Information items</source>
             </trans-unit>
+            <trans-unit id="information.information_group">
+                <source>Information group</source>
+            </trans-unit>
+
+            <trans-unit id="tx_cadabra_domain_model_information_group">
+                <source>Information group</source>
+            </trans-unit>
+            <trans-unit id="information_group.name">
+                <source>Group name</source>
+            </trans-unit>
+            <trans-unit id="information_group.render_method">
+                <source>Render method</source>
+            </trans-unit>
+            <trans-unit id="information_group.render_method.render">
+                <source>render</source>
+            </trans-unit>
+            <trans-unit id="information_group.render_method.link">
+                <source>link</source>
+            </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_attribute">
                 <source>Attribute</source>

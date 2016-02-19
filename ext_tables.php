@@ -55,6 +55,10 @@ if (TYPO3_MODE === 'BE') {
     'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_information.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_information');
 
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_information_group',
+    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_information_group.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_information_group');
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_fileinformation',
     'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_fileinformation.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_fileinformation');

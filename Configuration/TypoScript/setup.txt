@@ -23,6 +23,11 @@ config.tx_extbase.persistence.classes {
             tableName = tx_cadabra_domain_model_article_feature
         }
     }
+    Abra\Cadabra\Domain\Model\Information\InformationGroup {
+        mapping {
+            tableName = tx_cadabra_domain_model_information_group
+        }
+    }
 
     Abra\Cadabra\Domain\Model\Attribute\AbstractAttribute {
         mapping {

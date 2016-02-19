@@ -5,7 +5,7 @@ namespace Abra\Cadabra\Domain\Model\Information;
      *
      *  Copyright notice
      *
-     *  (c) 2016 Marcel Wieser <typo3dev@marcel-wieser.de>
+     *  (c) 2015 Marcel Wieser <typo3dev@marcel-wieser.de>
      *
      *  All rights reserved
      *
@@ -27,30 +27,51 @@ namespace Abra\Cadabra\Domain\Model\Information;
      ***************************************************************/
 
 /**
- * AbstractAttribute
+ * PageInformation
  */
-class AbstractInformation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class InformationGroup extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+    /**
+     * @var string
+     */
+    protected $title;
 
     /**
-     * @var \Abra\Cadabra\Domain\Model\Information\InformationGroup
+     * @var string
      */
-    protected $informationGroup;
+    protected $renderMethod;
 
     /**
-     * @return \Abra\Cadabra\Domain\Model\Information\InformationGroup
+     * @return string
      */
-    public function getInformationGroup()
+    public function getTitle()
     {
-        return $this->informationGroup;
+        return $this->title;
     }
 
     /**
-     * @param \Abra\Cadabra\Domain\Model\Information\InformationGroup $informationGroup
+     * @param string $title
      */
-    public function setInformationGroup($informationGroup)
+    public function setTitle($title)
     {
-        $this->informationGroup = $informationGroup;
+        $this->title = $title;
     }
+
+    /**
+     * @return string
+     */
+    public function getRenderMethod()
+    {
+        return $this->renderMethod;
+    }
+
+    /**
+     * @param string $renderMethod
+     */
+    public function setRenderMethod($renderMethod)
+    {
+        $this->renderMethod = $renderMethod;
+    }
+
 
 }

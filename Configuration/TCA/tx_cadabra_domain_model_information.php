@@ -27,10 +27,10 @@ return array(
     ),
     'types' => array(
         '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-        'Abra\\Cadabra\\Domain\\Model\\Information\\FileInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-        'Abra\\Cadabra\\Domain\\Model\\Information\\PageInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-        'Abra\\Cadabra\\Domain\\Model\\Information\\TtContentInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-        'Abra\\Cadabra\\Domain\\Model\\Information\\TextInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, record_type, content, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        'Abra\\Cadabra\\Domain\\Model\\Information\\FileInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, information_group, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        'Abra\\Cadabra\\Domain\\Model\\Information\\PageInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, information_group, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        'Abra\\Cadabra\\Domain\\Model\\Information\\TtContentInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, information_group, record_type, items, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        'Abra\\Cadabra\\Domain\\Model\\Information\\TextInformation' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, information_group, record_type, content, hidden;;1, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
     ),
     'palettes' => array(
         '1' => array('showitem' => ''),
@@ -179,6 +179,18 @@ return array(
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
             ),
-        )
+        ),
+        'information_group' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.information_group',
+            'config' => array(
+                'type' => 'select',
+                'foreign_table' => 'tx_cadabra_domain_model_information_group',
+                'size' => 1,
+                'maxitems' => 1,
+                'items' => array(
+                    array('', 0)
+                )
+            ),
+        ),
     ),
 );
