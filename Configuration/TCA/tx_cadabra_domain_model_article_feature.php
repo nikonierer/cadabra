@@ -18,7 +18,7 @@ return array(
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ),
-        'searchFields' => '',
+        'searchFields' => 'product, article, attribute, attribute_value',
         'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_article_feature.gif'
     ),
     'interface' => array(
