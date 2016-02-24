@@ -18,7 +18,7 @@ return array(
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ),
-        'searchFields' => '',
+        'searchFields' => 'name',
         'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_information_group.gif'
     ),
     'interface' => array(
@@ -26,7 +26,7 @@ return array(
     ),
     'types' => array(
         '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, render_method, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-     ),
+    ),
     'palettes' => array(
         '1' => array('showitem' => ''),
     ),

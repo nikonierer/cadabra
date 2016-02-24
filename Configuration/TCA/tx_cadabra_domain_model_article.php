@@ -2,7 +2,9 @@
 return array(
     'ctrl' => array(
         'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_article',
-        'label' => 'uid',
+        'label' => 'product',
+        'label_alt' => 'information',
+        'label_alt_force' => 1,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -18,7 +20,7 @@ return array(
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ),
-        'searchFields' => '',
+        'searchFields' => 'product,information',
         'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_article.gif'
     ),
     'interface' => array(
@@ -159,6 +161,25 @@ return array(
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
+                'wizards' => array(
+                    '_VERTICAL' => 0,
+                    'suggest' => array(
+                        'type' => 'suggest',
+                    ),
+                    'add' => array(
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:article.information.basedOn_add',
+                        'icon' => 'add.gif',
+                        'params' => array(
+                            'table' => 'tx_cadabra_domain_model_information',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ),
+                        'module' => array(
+                            'name' => 'wizard_add'
+                        )
+                    )
+                )
             ),
         ),
     ),

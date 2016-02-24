@@ -2,8 +2,10 @@
 return array(
     'ctrl' => array(
         'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_information',
-        'label' => 'uid',
-        'type'  => 'record_type',
+        'label' => 'information_group',
+        'label_alt' => 'content',
+        'label_alt_force' => 1,
+        'type' => 'record_type',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -19,7 +21,7 @@ return array(
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ),
-        'searchFields' => '',
+        'searchFields' => 'information_group, content',
         'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_information.gif'
     ),
     'interface' => array(
@@ -188,9 +190,31 @@ return array(
                 'size' => 1,
                 'maxitems' => 1,
                 'items' => array(
-                    array('', 0)
+                    array(
+                        'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.information_group.0',
+                        0
+                    )
+                ),
+                'wizards' => array(
+                    '_VERTICAL' => 1,
+                    'suggest' => array(
+                        'type' => 'suggest'
+                    ),
+                    'add' => array(
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.information_group.basedOn_add',
+                        'icon' => 'add.gif',
+                        'params' => array(
+                            'table' => 'tx_cadabra_domain_model_information_group',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ),
+                        'module' => array(
+                            'name' => 'wizard_add'
+                        )
+                    )
                 )
             ),
         ),
-    ),
+    )
 );

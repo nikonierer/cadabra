@@ -28,6 +28,24 @@
             <trans-unit id="product.attributes">
                 <source>Product attributes</source>
             </trans-unit>
+            <trans-unit id="product.attributes.basedOn_add">
+                <source>Add attributes</source>
+            </trans-unit>
+            <trans-unit id="product.attributes.basedOn_edit">
+                <source>Edit attributes</source>
+            </trans-unit>
+            <trans-unit id="product.information.basedOn_edit">
+                <source>Edit information</source>
+            </trans-unit>
+            <trans-unit id="product.information.basedOn_add">
+                <source>Edit information</source>
+            </trans-unit>
+            <trans-unit id="product.categories.basedOn_edit">
+                <source>Edit categories</source>
+            </trans-unit>
+            <trans-unit id="product.categories.basedOn_add">
+                <source>Edit categories</source>
+            </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_information">
                 <source>Information</source>
@@ -56,6 +74,9 @@
             <trans-unit id="information.information_group">
                 <source>Information group</source>
             </trans-unit>
+            <trans-unit id="information.information_group.basedOn_add">
+                <source>Add information group</source>
+            </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_information_group">
                 <source>Information group</source>
@@ -71,6 +92,9 @@
             </trans-unit>
             <trans-unit id="information_group.render_method.link">
                 <source>link</source>
+            </trans-unit>
+            <trans-unit id="information.information_group.0">
+                <source>Please choose</source>
             </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_attribute">
@@ -100,6 +124,12 @@
             <trans-unit id="attribute.products">
                 <source>Products</source>
             </trans-unit>
+            <trans-unit id="attribute.products.basedOn_edit">
+                <source>Edit product</source>
+            </trans-unit>
+            <trans-unit id="attribute.products.basedOn_add">
+                <source>Add product</source>
+            </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_attribute_value">
                 <source>Attribute value</source>
@@ -122,6 +152,9 @@
             </trans-unit>
            <trans-unit id="article.information">
                 <source>Information</source>
+            </trans-unit>
+           <trans-unit id="article.information.basedOn_add">
+                <source>Add information</source>
             </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_article_feature">
@@ -174,6 +207,6 @@
             <trans-unit id="tx_cadabra_domain_model_basketentry">
                 <source>Basket Entry</source>
             </trans-unit>
-        </body>
+         </body>
     </file>
 </xliff>
