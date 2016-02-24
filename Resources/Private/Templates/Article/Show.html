@@ -1,0 +1,10 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
+    <f:layout name="Frontend" />
+    <f:section name="Main">
+        <h1><f:translate key="article.single_view" /></h1>
+        <f:flashMessages />
+        <f:render partial="Article/Properties" section="Main" arguments="{article:article}" />
+        <f:link.action action="list"><f:translate key="article.list" /></f:link.action><br />
+    </f:section>
+</html>
