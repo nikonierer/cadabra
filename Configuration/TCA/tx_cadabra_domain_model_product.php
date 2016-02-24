@@ -158,6 +158,35 @@ return array(
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
+                'wizards' => array(
+                    '_VERTICAL' => 0,
+                    'suggest' => array(
+                        'type' => 'suggest'
+                    ),
+                    'edit' => array(
+                        'type' => 'popup',
+                        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.categories.basedOn_edit',
+                        'module' => array(
+                            'name' => 'wizard_edit',
+                        ),
+                        'popup_onlyOpenIfSelected' => 1,
+                        'icon' => 'edit2.gif',
+                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1'
+                    ),
+                    'add' => array(
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.categories.basedOn_add',
+                        'icon' => 'add.gif',
+                        'params' => array(
+                            'table' => 'sys_category',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ),
+                        'module' => array(
+                            'name' => 'wizard_add'
+                        )
+                    )
+                )
             ),
         ),
         'information' => array(
@@ -174,6 +203,35 @@ return array(
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
+                'wizards' => array(
+                    '_VERTICAL' => 0,
+                    'suggest' => array(
+                        'type' => 'suggest'
+                    ),
+                    'edit' => array(
+                        'type' => 'popup',
+                        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.information.basedOn_edit',
+                        'module' => array(
+                            'name' => 'wizard_edit',
+                        ),
+                        'popup_onlyOpenIfSelected' => 1,
+                        'icon' => 'edit2.gif',
+                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1'
+                    ),
+                    'add' => array(
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.information.basedOn_add',
+                        'icon' => 'add.gif',
+                        'params' => array(
+                            'table' => 'tx_cadabra_domain_model_information',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ),
+                        'module' => array(
+                            'name' => 'wizard_add'
+                        )
+                    )
+                )
             ),
         ),
         'attributes' => array(
@@ -186,6 +244,25 @@ return array(
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
+                'wizards' => array(
+                    '_VERTICAL' => 0,
+                    'suggest' => array(
+                        'type' => 'suggest'
+                    ),
+                    'add' => array(
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.attributes.basedOn_add',
+                        'icon' => 'add.gif',
+                        'params' => array(
+                            'table' => 'tx_cadabra_domain_model_attribute',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ),
+                        'module' => array(
+                            'name' => 'wizard_add'
+                        )
+                    )
+                )
             ),
         ),
         'articles' => array(

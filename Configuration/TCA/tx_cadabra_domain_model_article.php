@@ -161,6 +161,25 @@ return array(
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
+                'wizards' => array(
+                    '_VERTICAL' => 0,
+                    'suggest' => array(
+                        'type' => 'suggest',
+                    ),
+                    'add' => array(
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:article.information.basedOn_add',
+                        'icon' => 'add.gif',
+                        'params' => array(
+                            'table' => 'tx_cadabra_domain_model_information',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ),
+                        'module' => array(
+                            'name' => 'wizard_add'
+                        )
+                    )
+                )
             ),
         ),
     ),
