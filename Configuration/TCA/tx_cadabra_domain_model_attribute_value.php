@@ -2,7 +2,7 @@
 return array(
     'ctrl' => array(
         'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_attribute_value',
-        'label' => 'uid',
+        'label' => 'value',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',

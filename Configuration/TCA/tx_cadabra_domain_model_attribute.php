@@ -2,7 +2,7 @@
 return array(
     'ctrl' => array(
         'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_attribute',
-        'label' => 'uid',
+        'label' => 'name',
         'type' => 'record_type',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -169,7 +169,7 @@ return array(
                 'size' => 10,
                 'autoSizeMax' => 50,
                 'maxitems' => 9999,
-            ),
+             ),
         ),
         'products' => array(
             'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute.products',

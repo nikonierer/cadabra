@@ -2,8 +2,10 @@
 return array(
     'ctrl' => array(
         'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_information',
-        'label' => 'uid',
-        'type'  => 'record_type',
+        'label' => 'information_group',
+        'label_alt' => 'content',
+        'label_alt_force' => 1,
+        'type' => 'record_type',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
