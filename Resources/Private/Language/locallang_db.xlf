@@ -72,6 +72,9 @@
             <trans-unit id="information_group.render_method.link">
                 <source>link</source>
             </trans-unit>
+            <trans-unit id="information.information_group.0">
+                <source>Please choose</source>
+            </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_attribute">
                 <source>Attribute</source>
@@ -174,6 +177,6 @@
             <trans-unit id="tx_cadabra_domain_model_basketentry">
                 <source>Basket Entry</source>
             </trans-unit>
-        </body>
+         </body>
     </file>
 </xliff>

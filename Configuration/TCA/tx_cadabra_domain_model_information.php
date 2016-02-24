@@ -190,8 +190,7 @@ return array(
                 'size' => 1,
                 'maxitems' => 1,
                 'items' => array(
-                    array('', 0)
-                )
+                    array('LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.information_group.0', 0)
             ),
         ),
     ),
