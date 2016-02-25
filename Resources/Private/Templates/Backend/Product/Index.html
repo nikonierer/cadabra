@@ -4,7 +4,7 @@
 	  xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
 <f:layout name="Default"/>
 <f:section name="Main">
-	<h1>Cadabra Administration Tool</h1>
+	<h1><f:translate key="{settings.LLL.productadministration}:module.product.administration"/></h1>
 	<f:if condition="{products}">
 		<f:then>
 			<f:render partial="Backend/Product/ListProducts" section="Main" arguments="{products: products}" />

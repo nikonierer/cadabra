@@ -107,7 +107,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
         foreach ($actions as $action) {
             $item = $menu->makeMenuItem()
-                ->setTitle($this->getLanguageService()->sL('LLL:EXT:cadabra/Resources/Private/Language/locallang_be.xlf:module.' . $action['label']))
+                ->setTitle($this->getLanguageService()->sL($this->settings['LLL']['productadministration'] . ':module.' . $action['label']))
                 ->setHref($this->uriBuilder->reset()->uriFor($action['action'], [], 'Backend\Product'))
                 ->setActive($this->request->getControllerActionName() === $action['action']);
 
