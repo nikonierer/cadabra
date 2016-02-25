@@ -27,12 +27,12 @@ if (TYPO3_MODE === 'BE') {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     $_EXTKEY,
     'Article',
-    'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:cadabra_article'
+    'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_article'
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     $_EXTKEY,
     'Product',
-    'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:cadabra_product'
+    'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_product'
 );
 
 
@@ -137,7 +137,7 @@ if (TYPO3_MODE === 'BE') {
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:cadabra/Configuration/TypoScript/PageTsConfig.ts">');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array(
-    'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:cadabra_article',
+    'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_article',
     'cadabra_article'
 ), 'CType', 'cadabra');
 
@@ -147,7 +147,7 @@ $GLOBALS['TCA']['tt_content']['types']['cadabra_article']['showitem'] =
     --div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access,--palette--;LLL:EXT:cms/locallang_ttc.xml:palette.visibility; visibility,starttime, endtime';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array(
-    'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:cadabra_product',
+    'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_product',
     'cadabra_product'
 ), 'CType', 'cadabra');
 
