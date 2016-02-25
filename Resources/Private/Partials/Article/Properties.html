@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
+<f:layout name="Frontend"/>
+<f:section name="Main">
+    <table class="tx-cadabra">
+        <tr>
+            <td>
+                <f:translate key="article.title"/>
+            </td>
+            <td>
+                <h2>{article.product.title}</h2>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="article.product"/>
+            </td>
+            <td>
+                <f:format.raw>
+                    {article.product.description}
+                </f:format.raw>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="article.features"/>
+            </td>
+            <td>
+                <f:for each="{article.features}" as="feature">
+                    {feature.attributeValue.value} <br/>
+                </f:for>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="article.information"/>
+            </td>
+            <td>
+                <f:for each="{article.information}" as="information">
+                    <f:format.raw>{information.informationGroup.name}: {information.content}</f:format.raw>
+                    <br/>
+                </f:for>
+            </td>
+        </tr>
+    </table>
+</f:section>
+</html>

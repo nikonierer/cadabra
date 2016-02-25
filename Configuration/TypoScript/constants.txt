@@ -12,4 +12,10 @@ module.tx_cadabra_productadministration {
         # cat=module.tx_cadabra_productadministration//a; type=string; label=Default storage PID
         storagePid =
     }
+    settings{
+        # cat=module.tx_cadabra_productadministration//a; type=string; label=Default storage PID
+        LLL {
+            productadministration = LLL:EXT:cadabra/Resources/Private/Language/locallang_productadministration.xlf
+        }
+    }
 }

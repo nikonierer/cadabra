@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
+<f:layout name="Frontend"/>
+<f:section name="Main">
+    <table class="tx-cadabra">
+        <tr>
+            <td>
+                <f:translate key="product.title"/>
+            </td>
+            <td>
+                <h2>{product.title}</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="product.description"/>
+            </td>
+            <td>
+               <f:format.raw>{product.description}</f:format.raw>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="product.categories"/>
+            </td>
+            <td>
+                <f:for each="{product.categories}" as="category">
+                    {category.title}<br/>
+                </f:for>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="product.information"/>
+            </td>
+            <td>
+                <f:for each="{product.information}" as="information">
+                    <f:format.raw>{information.informationGroup.name}:{information.content}</f:format.raw>
+                    <br/>
+                </f:for>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="product.attributes"/>
+            </td>
+            <td>
+                <f:for each="{product.attributes}" as="attribute">
+                    {attribute.name}
+                </f:for>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="product.articles"/>
+            </td>
+            <td>
+                <f:for each="{product.articles}" as="article">
+                    {article.product.title}
+                </f:for>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="product.base_price"/>
+            </td>
+            <td>
+                {product.basePrice}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <f:translate key="product.tax_rate"/>
+            </td>
+            <td>
+                {product.taxRate}
+            </td>
+        </tr>
+    </table>
+</f:section>
+</html>

@@ -1,11 +1,11 @@
 <?php
-namespace Abra\Cadabra\Domain\Model\Information;
+namespace Abra\Cadabra\Controller;
 
     /***************************************************************
      *
      *  Copyright notice
      *
-     *  (c) 2015 Marcel Wieser <typo3dev@marcel-wieser.de>
+     *  (c) 18.02.2016  Michael <michael.blunck@phth.de>, PHTH
      *
      *  All rights reserved
      *
@@ -24,54 +24,14 @@ namespace Abra\Cadabra\Domain\Model\Information;
      *  GNU General Public License for more details.
      *
      *  This copyright notice MUST APPEAR in all copies of the script!
-     ***************************************************************/
+     *  Created by PhpStorm.
+     ******************************************************************/
 
 /**
- * PageInformation
+ * Class ActionController
+ * @package Abra\Cadabra\Controller
  */
-class InformationGroup extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class ActionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
-    /**
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * @var string
-     */
-    protected $renderMethod;
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRenderMethod()
-    {
-        return $this->renderMethod;
-    }
-
-    /**
-     * @param string $renderMethod
-     */
-    public function setRenderMethod($renderMethod)
-    {
-        $this->renderMethod = $renderMethod;
-    }
-
 
 }

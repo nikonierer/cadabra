@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2016-02-16T10:04:47Z"
+          product-name="cadabra">
+        <header/>
+        <body>
+            <trans-unit id="cadabra_article">
+                <source>Article list</source>
+            </trans-unit>
+            <trans-unit id="cadabra_article.description">
+                <source>Articles Frontend</source>
+            </trans-unit>
+            <trans-unit id="cadabra_product">
+                <source>Product list</source>
+            </trans-unit>
+            <trans-unit id="cadabra_product.description">
+                <source>Products Frontend</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

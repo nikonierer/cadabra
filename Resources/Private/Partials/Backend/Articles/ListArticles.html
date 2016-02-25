@@ -1,29 +1,29 @@
 {namespace c=Abra\Cadabra\ViewHelpers}
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en"
-	  xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
+      xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
 <f:section name="Main">
-	<div class="panel panel-space panel-default">
-		<div class="panel-heading">Products</div>
-		<div class="table-fit collapse in" id="recordlist-tx_cadabra_domain_model_attribute" data-state="expanded">
-			<table data-table="tx_cadabra_domain_model_attribute" class="table table-striped table-hover">
-				<thead>
-				<tr>
-					<th nowrap="nowrap">Product title</th>
-					<th nowrap="nowrap">Attributes</th>
-					<td nowrap="nowrap">&nbsp;</td>
-					<th nowrap="nowrap">&nbsp;</th>
-				</tr>
-				</thead>
-				<tbody>
-				<f:for each="{articles}" as="article" iteration="i">
-					<tr class="{f:if(condition: '{i.isFirst}', then: 'firstcol')} {f:if(condition: '{i.isLast}', then: 'lastcol')}">
-						<td class="">
-							<c:be.editLink table="tx_cadabra_domain_model_article"
-										   uid="{article.uid}"
-										   title="Edit record">
-								{article.product.title} ({article.uid})
-							</c:be.editLink>
+    <div class="panel panel-space panel-default">
+        <div class="panel-heading"><f:translate key="{settings.LLL.productadministration}:module.article.products"/></div>
+        <div class="table-fit collapse in" id="recordlist-tx_cadabra_domain_model_attribute" data-state="expanded">
+            <table data-table="tx_cadabra_domain_model_attribute" class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th nowrap="nowrap"><f:translate key="{settings.LLL.productadministration}:module.article.title"/></th>
+                    <th nowrap="nowrap"><f:translate key="{settings.LLL.productadministration}:module.article.attributes"/></th>
+                    <td nowrap="nowrap">&nbsp;</td>
+                    <th nowrap="nowrap">&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                <f:for each="{articles}" as="article" iteration="i">
+                    <tr class="{f:if(condition: '{i.isFirst}', then: 'firstcol')} {f:if(condition: '{i.isLast}', then: 'lastcol')}">
+                        <td class="">
+                            <c:be.editLink table="tx_cadabra_domain_model_article"
+                                           uid="{article.uid}"
+                                           title="{f:translate(key:'{settings.LLL.productadministration}:module.articles.edit')}">
+                                {article.product.title} ({article.uid})
+                            </c:be.editLink>
 						</td>
 						<td nowrap="nowrap">
 							<f:for each="{article.features}" as="feature" iteration="n">
@@ -31,12 +31,12 @@
 							</f:for>
 
 						</td>
-						<td nowrap="nowrap">
-							<div class="btn-group" role="group">
-								<c:be.editLink class="btn btn-default"
+                        <td nowrap="nowrap">
+                            <div class="btn-group" role="group">
+                                <c:be.editLink class="btn btn-default"
 											   table="tx_cadabra_domain_model_article"
 											   uid="{article.uid}"
-											   title="Edit record">
+											   title="{f:translate(key:'{settings.LLL.productadministration}:module.articles.edit')}">
 										<span class="t3js-icon icon icon-size-small icon-state-default icon-actions-open" data-identifier="actions-open">
 											<span class="icon-markup">
 												<img src="/typo3/sysext/core/Resources/Public/Icons/T3Icons/actions/actions-open.svg" width="16" height="16">
@@ -45,12 +45,12 @@
 								</c:be.editLink>
 							</div>
 						</td>
-						<td nowrap="nowrap"></td>
-					</tr>
-				</f:for>
-				</tbody>
-			</table>
-		</div>
-	</div>
+                        <td nowrap="nowrap"></td>
+                    </tr>
+                </f:for>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </f:section>
 </html>

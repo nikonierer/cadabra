@@ -4,11 +4,84 @@
           product-name="cadabra">
         <header/>
         <body>
-            <trans-unit id="mlang_tabs_tab">
-                <source>Product administration</source>
+            <trans-unit id="module.listProducts">
+                <source>List products</source>
             </trans-unit>
-            <trans-unit id="mlang_labels_tabdescr">
-                <source></source>
+            <trans-unit id="module.listArticles">
+                <source>List articles</source>
+            </trans-unit>
+            <trans-unit id="module.article.list">
+                <source>List articles</source>
+            </trans-unit>
+            <trans-unit id="module.article.articles">
+                <source>Articles</source>
+            </trans-unit>
+            <trans-unit id="module.article.products">
+                <source>Products</source>
+            </trans-unit>
+            <trans-unit id="module.article.title">
+                <source>Article title</source>
+            </trans-unit>
+            <trans-unit id="module.article.attributes">
+                <source>Attributes</source>
+            </trans-unit>
+            <trans-unit id="module.article.pages">
+                <source>Pages</source>
+            </trans-unit>
+            <trans-unit id="module.article.not_found.title">
+                <source>No articles found</source>
+            </trans-unit>
+            <trans-unit id="module.article.not_found.description">
+                <source>The current page doesn't contain any articles.</source>
+            </trans-unit>
+            <trans-unit id="module.articles.edit">
+                <source>Edit Article</source>
+            </trans-unit>
+
+            <trans-unit id="module.product.list">
+                <source>List products</source>
+            </trans-unit>
+            <trans-unit id="module.product.products">
+                <source>Products</source>
+            </trans-unit>
+            <trans-unit id="module.product.title">
+                <source>Product title</source>
+            </trans-unit>
+            <trans-unit id="module.product.attributes">
+                <source>Attributes</source>
+            </trans-unit>
+            <trans-unit id="module.listPages.pages_with_articles">
+                <source>Pages which contain articles</source>
+            </trans-unit>
+            <trans-unit id="module.product.page">
+                <source>Page</source>
+            </trans-unit>
+            <trans-unit id="module.product.pages">
+                <source>Pages</source>
+            </trans-unit>
+            <trans-unit id="module.product.articles">
+                <source>Articles</source>
+            </trans-unit>
+            <trans-unit id="module.product.page_with_products">
+                <source> Pages which contain products</source>
+            </trans-unit>
+            <trans-unit id="module.product.not_found.title">
+                <source>No products found</source>
+            </trans-unit>
+            <trans-unit id="module.product.not_found.description">
+                <source>The current page doesn't contain any products.</source>
+            </trans-unit>
+            <trans-unit id="module.product.administration">
+                <source>Cadabra Administration Tool</source>
+            </trans-unit>
+            <trans-unit id="module.product.administration.generate">
+                <source>GENERATE</source>
+            </trans-unit>
+            <trans-unit id="module.product.edit">
+                <source>Edit Product</source>
+            </trans-unit>
+            <trans-unit id="module.product.generate">
+                <source>Generate Articles</source>
             </trans-unit>
         </body>
     </file>

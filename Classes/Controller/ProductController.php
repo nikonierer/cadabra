@@ -1,11 +1,11 @@
 <?php
-namespace Abra\Cadabra\Domain\Model\Information;
+namespace Abra\Cadabra\Controller;
 
     /***************************************************************
      *
      *  Copyright notice
      *
-     *  (c) 2015 Marcel Wieser <typo3dev@marcel-wieser.de>
+     *  (c) 18.02.2016  Michael <michael.blunck@phth.de>, PHTH
      *
      *  All rights reserved
      *
@@ -24,54 +24,43 @@ namespace Abra\Cadabra\Domain\Model\Information;
      *  GNU General Public License for more details.
      *
      *  This copyright notice MUST APPEAR in all copies of the script!
-     ***************************************************************/
+     *  Created by PhpStorm.
+     ******************************************************************/
 
 /**
- * PageInformation
+ * Class ProductController
+ * @package Abra\Cadabra\Controller
  */
-class InformationGroup extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class ProductController extends ActionController
 {
-    /**
-     * @var string
-     */
-    protected $name;
 
     /**
-     * @var string
+     * ProductRepository
+     *
+     * @var \Abra\Cadabra\Domain\Repository\ProductRepository
+     * @inject
      */
-    protected $renderMethod;
+    protected $productRepository;
 
     /**
-     * @return string
+     * list
+     *
+     * @return void
      */
-    public function getName()
+    public function listAction()
     {
-        return $this->name;
+        $products = $this->productRepository->findAll();
+        $this->view->assign('products', $products);
     }
 
     /**
-     * @param string $name
+     * show
+     *
+     * @return void
      */
-    public function setName($name)
+    public function showAction(\Abra\Cadabra\Domain\Model\Product $product)
     {
-        $this->name = $name;
+        $this->view->assign('product', $product);
     }
-
-    /**
-     * @return string
-     */
-    public function getRenderMethod()
-    {
-        return $this->renderMethod;
-    }
-
-    /**
-     * @param string $renderMethod
-     */
-    public function setRenderMethod($renderMethod)
-    {
-        $this->renderMethod = $renderMethod;
-    }
-
 
 }

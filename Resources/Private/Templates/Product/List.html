@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
+<f:layout name="Frontend"/>
+<f:section name="Main">
+    <h1>
+        <f:translate key="product.list_view"/>
+    </h1>
+    <f:flashMessages/>
+    <table class="tx_cadabra">
+        <tr>
+            <th>
+                <f:translate key="product.title"/>
+            </th>
+            <th>
+                <f:translate key="product.description"/>
+            </th>
+            <th>
+                <f:translate key="product.categories"/>
+            </th>
+            <th>
+                <f:translate key="product.information"/>
+            </th>
+            <th>
+                <f:translate key="product.attributes"/>
+            </th>
+            <th>
+                <f:translate key="product.articles"/>
+            </th>
+            <th>
+                <f:translate key="product.base_price"/>
+            </th>
+            <th>
+                <f:translate key="product.tax_rate"/>
+            </th>
+        </tr>
+        <f:for each="{products}" as="product">
+            <tr>
+                <td>
+                    <f:link.action action="show" arguments="{product : product}">{product.title}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{product : product}">
+                        <f:format.raw>{product.description}</f:format.raw>
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{product : product}">
+                        <f:for each="{product.categories}" as="category">
+                            {category.title}<br/>
+                        </f:for>
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{product : product}">
+                        <f:for each="{product.information}" as="information">
+                            <f:format.raw>{information.informationGroup.name}:{information.content}</f:format.raw>
+                            <br/>
+                        </f:for>
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{product : product}">
+                        <f:for each="{product.attributes}" as="attribute">
+                            {attribute.name}
+                        </f:for>
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{product : product}">
+                        <f:for each="{product.articles}" as="article">
+                            {article.product.title}
+                        </f:for>
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{product : product}"> {product.basePrice}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{product : product}"> {product.taxRate}</f:link.action>
+                </td>
+            </tr>
+        </f:for>
+    </table>
+</f:section>
+</html>

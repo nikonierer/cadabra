@@ -7,9 +7,80 @@
             <trans-unit id="tx_cadabra_domain_model_product">
                 <source>Product</source>
             </trans-unit>
+            <trans-unit id="product.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="product.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="product.attributes">
+                <source>Attributes</source>
+            </trans-unit>
+            <trans-unit id="product.categories">
+                <source>Categories</source>
+            </trans-unit>
+            <trans-unit id="product.information">
+                <source>Information</source>
+            </trans-unit>
+            <trans-unit id="product.product">
+                <source>Product</source>
+            </trans-unit>
+            <trans-unit id="product.features">
+                <source>Features</source>
+            </trans-unit>
+            <trans-unit id="product.base_price">
+                <source>Base price</source>
+            </trans-unit>
+            <trans-unit id="product.tax_rate">
+                <source>Tax rate</source>
+            </trans-unit>
+           	<trans-unit id="product.list">
+                <source>Back to list</source>
+            </trans-unit>
+            <trans-unit id="product.new">
+                <source>New product</source>
+            </trans-unit>
+            <trans-unit id="product.single_view">
+                <source>Single view</source>
+            </trans-unit>
+            <trans-unit id="product.list_view">
+                <source>List view</source>
+            </trans-unit>
+
             <trans-unit id="tx_cadabra_domain_model_article">
                 <source>Article</source>
             </trans-unit>
+            <trans-unit id="article.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="article.attributes">
+                <source>Attributes</source>
+            </trans-unit>
+            <trans-unit id="article.category">
+                <source>Category</source>
+            </trans-unit>
+            <trans-unit id="article.information">
+                <source>Information</source>
+            </trans-unit>
+            <trans-unit id="article.product">
+                <source>Product</source>
+            </trans-unit>
+            <trans-unit id="article.features">
+                <source>Features</source>
+            </trans-unit>
+            <trans-unit id="article.list">
+                <source>Back to list</source>
+            </trans-unit>
+            <trans-unit id="article.new">
+                <source>New article</source>
+            </trans-unit>
+            <trans-unit id="article.single_view">
+                <source>Single view</source>
+            </trans-unit>
+            <trans-unit id="article.list_view">
+                <source>List view</source>
+            </trans-unit>
+
             <trans-unit id="tx_cadabra_domain_model_articleattribute">
                 <source>Article Attribute</source>
             </trans-unit>
@@ -82,6 +153,7 @@
             <trans-unit id="tx_cadabra_domain_model_file">
                 <source>File</source>
             </trans-unit>
+
         </body>
     </file>
 </xliff>

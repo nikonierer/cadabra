@@ -19,11 +19,22 @@ if (TYPO3_MODE === 'BE') {
         array(
             'access' => 'user,group',
             'icon' => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
-            'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_productadministration.xlf',
+            'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_be.xlf',
         )
     );
 
 }
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    $_EXTKEY,
+    'Article',
+    'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_article'
+);
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    $_EXTKEY,
+    'Product',
+    'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_product'
+);
+
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Cadabra');
 
@@ -122,3 +133,25 @@ if (TYPO3_MODE === 'BE') {
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_file',
     'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_file.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_file');
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:cadabra/Configuration/TypoScript/PageTsConfig.ts">');
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array(
+    'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_article',
+    'cadabra_article'
+), 'CType', 'cadabra');
+
+$GLOBALS['TCA']['tt_content']['types']['cadabra_article']['showitem'] =
+    'CType;;cadabra_general-element-properties;1-1-1,
+     --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
+    --div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access,--palette--;LLL:EXT:cms/locallang_ttc.xml:palette.visibility; visibility,starttime, endtime';
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array(
+    'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_product',
+    'cadabra_product'
+), 'CType', 'cadabra');
+
+$GLOBALS['TCA']['tt_content']['types']['cadabra_product']['showitem'] =
+    'CType;;cadabra_general-element-properties;1-1-1,
+     --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.header;header,
+    --div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access,--palette--;LLL:EXT:cms/locallang_ttc.xml:palette.visibility; visibility,starttime, endtime';
