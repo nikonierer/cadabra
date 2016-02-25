@@ -42,7 +42,8 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $hash;
 
     /**
-     * @var \Abra\Cadabra\Domain\Model\Information\AbstractInformation
+     * @lazy
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     protected $information;
 
@@ -66,6 +67,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function initializeObject()
     {
         $this->features = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->information = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**
@@ -101,7 +103,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return Information\AbstractInformation
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\Information\AbstractInformation>
      */
     public function getInformation()
     {
@@ -109,7 +111,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param Information\AbstractInformation $information
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\Information\AbstractInformation> $information
      */
     public function setInformation($information)
     {
@@ -117,7 +119,23 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @param \Abra\Cadabra\Domain\Model\Information\AbstractInformation $information
+     */
+    public function addInformation($information)
+    {
+        $this->information->attach($information);
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\Information\AbstractInformation $information
+     */
+    public function removeInformation($information)
+    {
+        $this->information->detach($information);
+    }
+
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\ArticleFeature>
      */
     public function getFeatures()
     {
