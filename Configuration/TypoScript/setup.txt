@@ -107,6 +107,57 @@ config.tx_extbase.persistence.classes {
         }
     }
 
+    Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer {
+        mapping {
+            tableName = tx_cadabra_domain_model_price_influencer
+            recordType = Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer
+        }
+        subclasses {
+            Abra\Cadabra\Domain\Model\PriceInfluencer\AbsolutePriceInfluencer = Abra\Cadabra\Domain\Model\PriceInfluencer\AbsolutePriceInfluencer
+            Abra\Cadabra\Domain\Model\PriceInfluencer\RelativePriceInfluencer = Abra\Cadabra\Domain\Model\PriceInfluencer\RelativePriceInfluencer
+            Abra\Cadabra\Domain\Model\PriceInfluencer\OverwritePriceInfluencer = Abra\Cadabra\Domain\Model\PriceInfluencer\OverwritePriceInfluencer
+            Abra\Cadabra\Domain\Model\PriceInfluencer\AbsoluteScaledPriceInfluencer = Abra\Cadabra\Domain\Model\PriceInfluencer\AbsoluteScaledPriceInfluencer
+            Abra\Cadabra\Domain\Model\PriceInfluencer\RelativeScaledPriceInfluencer = Abra\Cadabra\Domain\Model\PriceInfluencer\RelativeScaledPriceInfluencer
+            Abra\Cadabra\Domain\Model\PriceInfluencer\OverwriteScaledPriceInfluencer = Abra\Cadabra\Domain\Model\PriceInfluencer\OverwriteScaledPriceInfluencer
+        }
+    }
+
+    Abra\Cadabra\Domain\Model\PriceInfluencer\AbsolutePriceInfluencer {
+        mapping {
+            tableName = tx_cadabra_domain_model_price_influencer
+            recordType = Abra\Cadabra\Domain\Model\PriceInfluencer\AbsolutePriceInfluencer
+        }
+    }
+    Abra\Cadabra\Domain\Model\PriceInfluencer\RelativePriceInfluencer {
+        mapping {
+            tableName = tx_cadabra_domain_model_price_influencer
+            recordType = Abra\Cadabra\Domain\Model\PriceInfluencer\RelativePriceInfluencer
+        }
+    }
+    Abra\Cadabra\Domain\Model\PriceInfluencer\OverwritePriceInfluencer {
+        mapping {
+            tableName = tx_cadabra_domain_model_price_influencer
+            recordType = Abra\Cadabra\Domain\Model\PriceInfluencer\OverwritePriceInfluencer
+        }
+    }
+    Abra\Cadabra\Domain\Model\PriceInfluencer\AbsoluteScaledPriceInfluencer {
+        mapping {
+            tableName = tx_cadabra_domain_model_price_influencer
+            recordType = Abra\Cadabra\Domain\Model\PriceInfluencer\AbsoluteScaledPriceInfluencer
+        }
+    }
+    Abra\Cadabra\Domain\Model\PriceInfluencer\RelativeScaledPriceInfluencer {
+        mapping {
+            tableName = tx_cadabra_domain_model_price_influencer
+            recordType = Abra\Cadabra\Domain\Model\PriceInfluencer\RelativeScaledPriceInfluencer
+        }
+    }
+    Abra\Cadabra\Domain\Model\PriceInfluencer\OverwriteScaledPriceInfluencer {
+        mapping {
+            tableName = tx_cadabra_domain_model_price_influencer
+            recordType = Abra\Cadabra\Domain\Model\PriceInfluencer\OverwriteScaledPriceInfluencer
+        }
+    }
 
 
 }

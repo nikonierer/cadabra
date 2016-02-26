@@ -78,6 +78,7 @@ CREATE TABLE tx_cadabra_domain_model_article (
 	hash varchar(255) DEFAULT '' NOT NULL,
 	features int(11) DEFAULT '0' NOT NULL,
 	information int(11) DEFAULT '0' NOT NULL,
+	price_influencer int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -174,9 +175,9 @@ CREATE TABLE tx_cadabra_domain_model_attribute (
 );
 
 #
-# Table structure for table 'tx_cadabra_domain_model_priceinfluencer'
+# Table structure for table 'tx_cadabra_domain_model_price_influencer'
 #
-CREATE TABLE tx_cadabra_domain_model_priceinfluencer (
+CREATE TABLE tx_cadabra_domain_model_price_influencer (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -203,8 +204,13 @@ CREATE TABLE tx_cadabra_domain_model_priceinfluencer (
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
 
-	type tinyint(1) DEFAULT '0' NOT NULL,
-	value double(11,2) DEFAULT '0.00' NOT NULL,
+	record_type varchar(255) DEFAULT '' NOT NULL,
+	absolute_amount double(11,2) DEFAULT '0.00' NOT NULL,
+	relative_amount double(11,2) DEFAULT '0.00' NOT NULL,
+	overwrite_price double(11,2) DEFAULT '0.00' NOT NULL,
+	minimum_quantity int(11) unsigned DEFAULT '0' NOT NULL,
+	discount tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	single_article_price_influence tinyint(1) unsigned DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -245,6 +251,7 @@ CREATE TABLE tx_cadabra_domain_model_attribute_value (
 
 	attribute int(11) DEFAULT '0' NOT NULL,
 	value varchar(255) DEFAULT '0' NOT NULL,
+	price_influencer int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -379,6 +386,21 @@ CREATE TABLE tx_cadabra_product_attribute_mm (
 # Table structure for table 'tx_cadabra_information_record_mm'
 #
 CREATE TABLE tx_cadabra_information_record_mm (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	tablenames varchar(255) DEFAULT '' NOT NULL,
+	fieldname varchar(255) DEFAULT '' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local_foreign (uid_local,uid_foreign),
+	KEY uid_foreign_tablefield (uid_foreign,tablenames(40),fieldname(3),sorting_foreign)
+);
+
+#
+# Table structure for table 'tx_cadabra_price_influencer_record_mm'
+#
+CREATE TABLE tx_cadabra_price_influencer_record_mm (
 	uid_local int(11) DEFAULT '0' NOT NULL,
 	uid_foreign int(11) DEFAULT '0' NOT NULL,
 	tablenames varchar(255) DEFAULT '' NOT NULL,

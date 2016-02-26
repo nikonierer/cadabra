@@ -54,6 +54,12 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $features;
 
     /**
+     * @lazy
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer>
+     */
+    protected $priceInfluencer;
+
+    /**
      * The constructor
      */
     public function __construct()
@@ -67,6 +73,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function initializeObject()
     {
         $this->features = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->priceInfluencer = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->information = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
@@ -150,4 +157,35 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->features = $features;
     }
 
+}    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer>
+     */
+    public function getPriceInfluencer()
+    {
+        return $this->priceInfluencer;
+    }
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer> $priceInfluencer
+     */
+    public function setPriceInfluencer($priceInfluencer)
+    {
+        $this->priceInfluencer = $priceInfluencer;
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer $priceInfluencer
+     */
+    public function addPriceInfluencer($priceInfluencer)
+    {
+        $this->priceInfluencer->attach($priceInfluencer);
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer $priceInfluencer
+     */
+    public function removePriceInfluencer($priceInfluencer)
+    {
+        $this->priceInfluencer->detach($priceInfluencer);
+    }
 }
