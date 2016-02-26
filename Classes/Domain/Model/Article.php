@@ -150,14 +150,30 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $features
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\ArticleFeature> $features
      */
     public function setFeatures($features)
     {
         $this->features = $features;
     }
 
-}    /**
+    /**
+     * @param \Abra\Cadabra\Domain\Model\ArticleFeature $feature
+     */
+    public function addFeature($feature)
+    {
+        $this->features->attach($feature);
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\ArticleFeature $feature
+     */
+    public function removeFeature($feature)
+    {
+        $this->features->detach($feature);
+    }
+
+    /**
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer>
      */
     public function getPriceInfluencer()
