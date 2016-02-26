@@ -130,7 +130,8 @@ return array(
                 'type' => 'text',
                 'cols' => '40',
                 'rows' => '15'
-            )
+            ),
+            'defaultExtras' => 'richtext[]'
         ),
         'base_price' => array(
             'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:product.base_price',
