@@ -54,9 +54,9 @@ if (TYPO3_MODE === 'BE') {
     'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_attribute.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_attribute');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_priceinfluencer',
-    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_priceinfluencer.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_priceinfluencer');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_price_influencer',
+    'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_price_influencer.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_cadabra_domain_model_price_influencer');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_cadabra_domain_model_attribute_value',
     'EXT:cadabra/Resources/Private/Language/locallang_csh_tx_cadabra_domain_model_attribute_value.xlf');

@@ -1,11 +1,11 @@
 <?php
-namespace Abra\Cadabra\Domain\Model;
+namespace Abra\Cadabra\Domain\Model\PriceInfluencer ;
 
     /***************************************************************
      *
      *  Copyright notice
      *
-     *  (c) 2015 Marcel Wieser <typo3dev@marcel-wieser.de>
+     *  (c) 2016 Marcel Wieser <typo3dev@marcel-wieser.de>
      *
      *  All rights reserved
      *
@@ -27,70 +27,59 @@ namespace Abra\Cadabra\Domain\Model;
      ***************************************************************/
 
 /**
- * PriceInfluencer
+ * AbstractScaledPriceInfluencer
  */
-class PriceInfluencer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class AbstractScaledPriceInfluencer extends AbstractPriceInfluencer
 {
     /**
-     * The value influences the final price relative to the base price of the product
+     * @var boolean
      */
-    const INFLUENCER_TYPE_RELATIVE = 1;
+    protected $singleArticlePriceInfluence;
 
     /**
-     * The impact or discount influences the final price absolute
-     */
-    const INFLUENCER_TYPE_ABSOLUTE = 2;
-
-    /**
-     * Value must contain a formula which will be applied to the base price
-     *
-     * @WIP
-     */
-    const INFLUENCER_TYPE_FORMULA = 3;
-
-    /**
-     * Contains the type of the price influencer
-     *
      * @var integer
      */
-    protected $type;
+    protected $minimumQuantity;
 
     /**
-     * Contains the influencer value
-     *
-     * @var double
+     * @return boolean
      */
-    protected $value;
-
-    /**
-     * @return int
-     */
-    public function getType()
+    public function getSingleArticlePriceInfluence()
     {
-        return $this->type;
+        return $this->singleArticlePriceInfluence;
     }
 
     /**
-     * @param int $type
+     * @return boolean
      */
-    public function setType($type)
+    public function isSingleArticlePriceInfluence()
     {
-        $this->type = $type;
+        return $this->singleArticlePriceInfluence;
     }
 
     /**
-     * @return double
+     * @param boolean $singleArticlePriceInfluence
      */
-    public function getValue()
+    public function setSingleArticlePriceInfluence($singleArticlePriceInfluence)
     {
-        return $this->value;
+        $this->singleArticlePriceInfluence = $singleArticlePriceInfluence;
     }
 
     /**
-     * @param double $value
+     * @return integer
      */
-    public function setValue($value)
+    public function getMinimumQuantity()
     {
-        $this->value = $value;
+        return $this->minimumQuantity;
     }
+
+    /**
+     * @param integer $minimumQuantity
+     */
+    public function setMinimumQuantity($minimumQuantity)
+    {
+        $this->minimumQuantity = $minimumQuantity;
+    }
+
+
 }

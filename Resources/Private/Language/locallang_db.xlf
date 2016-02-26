@@ -173,8 +173,53 @@
                 <source>Attribute value</source>
             </trans-unit>
 
-            <trans-unit id="tx_cadabra_domain_model_priceinfluencer">
+            <trans-unit id="tx_cadabra_domain_model_price_influencer">
                 <source>Price Influencer</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.record_type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.record_type.absolute">
+                <source>Absolute</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.record_type.relative">
+                <source>Relative</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.record_type.overwrite">
+                <source>Overwrite</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.record_type.scaled_absolute">
+                <source>Scaled absolute</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.record_type.scaled_relative">
+                <source>Scaled relative</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.record_type.scaled_overwrite">
+                <source>Scaled overwrite</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.absolute_amount">
+                <source>Absolute amount</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.relative_amount">
+                <source>Relative amount</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.overwrite_price">
+                <source>Overwrite price</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.minimum_quantity">
+                <source>Minimum quantity</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.discount">
+                <source>Discount?</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.discount.discount">
+                <source>Discount</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.discount.addition">
+                <source>Addition</source>
+            </trans-unit>
+            <trans-unit id="price_influencer.single_article_price_influence">
+                <source>Affects single article price?</source>
             </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_address">
