@@ -52,4 +52,17 @@ class RelativeScaledPriceInfluencer extends AbstractScaledPriceInfluencer implem
         $this->relativeAmount = $relativeAmount;
     }
 
+    /**
+     * @param float $basePrice
+     * @return float
+     */
+    public function calculatePrice($basePrice)
+    {
+        /**
+         * @TODO: Needs to be implemented
+         */
+
+        return $basePrice;
+    }
+
 }

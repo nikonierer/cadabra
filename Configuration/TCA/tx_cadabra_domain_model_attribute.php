@@ -26,7 +26,7 @@ return array(
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ',
     ),
     'types' => array(
-        '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, record_type, name, attribute_values, information, products, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, record_type, name, attribute_values, information, products, price_influencer, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
     ),
     'palettes' => array(
         '1' => array('showitem' => ''),
@@ -239,6 +239,22 @@ return array(
                         )
                     )
                 )
+            ),
+        ),
+        'price_influencer' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:attribute.price_influencer',
+            'config' => array(
+                'type' => 'select',
+                'foreign_table' => 'tx_cadabra_domain_model_price_influencer',
+                'MM' => 'tx_cadabra_price_influencer_record_mm',
+                'MM_opposite_field' => 'records',
+                'MM_match_fields' => array(
+                    'tablenames' => 'tx_cadabra_domain_model_attribute',
+                    'fieldname' => 'price_influencer',
+                ),
+                'size' => 10,
+                'autoSizeMax' => 50,
+                'maxitems' => 9999,
             ),
         ),
     ),

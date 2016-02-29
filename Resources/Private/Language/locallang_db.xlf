@@ -130,12 +130,18 @@
             <trans-unit id="attribute.products.basedOn_add">
                 <source>Add product</source>
             </trans-unit>
+            <trans-unit id="attribute.price_influencer">
+                <source>Price influencer</source>
+            </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_attribute_value">
                 <source>Attribute value</source>
             </trans-unit>
             <trans-unit id="attribute_value.value">
                 <source>Value</source>
+            </trans-unit>
+            <trans-unit id="attribute_value.price_influencer">
+                <source>Price influencer</source>
             </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_article">
@@ -156,6 +162,10 @@
            <trans-unit id="article.information.basedOn_add">
                 <source>Add information</source>
             </trans-unit>
+           <trans-unit id="article.price_influencer">
+                <source>Price influencer</source>
+            </trans-unit>
+
 
             <trans-unit id="tx_cadabra_domain_model_article_feature">
                 <source>Article feature</source>

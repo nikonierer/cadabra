@@ -54,7 +54,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $information;
 
     /**
-     * @var \Abra\Cadabra\Domain\Model\PriceInfluencer;
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer>
      */
     protected $priceInfluencer;
 
@@ -72,6 +72,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function initializeObject()
     {
         $this->values = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->priceInfluencer = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->information = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
@@ -124,7 +125,7 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @return \Abra\Cadabra\Domain\Model\PriceInfluencer
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer>
      */
     public function getPriceInfluencer()
     {
@@ -132,11 +133,26 @@ class AbstractAttribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \Abra\Cadabra\Domain\Model\PriceInfluencer $priceInfluencer
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer>
      */
     public function setPriceInfluencer($priceInfluencer)
     {
         $this->priceInfluencer = $priceInfluencer;
     }
 
+    /**
+     * @param \Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer $priceInfluencer
+     */
+    public function addPriceInfluencer($priceInfluencer)
+    {
+        $this->priceInfluencer->attach($priceInfluencer);
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer $priceInfluencer
+     */
+    public function removePriceInfluencer($priceInfluencer)
+    {
+        $this->priceInfluencer->detach($priceInfluencer);
+    }
 }
