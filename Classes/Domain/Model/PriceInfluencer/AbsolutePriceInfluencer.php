@@ -53,4 +53,17 @@ class AbsolutePriceInfluencer extends AbstractPriceInfluencer implements PriceIn
         $this->absoluteAmount = $absoluteAmount;
     }
 
+    /**
+     * @param float $basePrice
+     * @return float
+     */
+    public function calculatePrice($basePrice)
+    {
+        if ($this->discount) {
+            return $basePrice - $this->getAbsoluteAmount();
+        }
+
+        return $basePrice + $this->getAbsoluteAmount();
+    }
+
 }

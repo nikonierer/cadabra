@@ -14,6 +14,11 @@ module.tx_cadabra_web_cadabraproductadministration {
         LLL {
             productadministration = {$module.tx_cadabra_productadministration.settings.LLL.productadministration}
         }
+
+        numbers {
+            decimalSeparator = {$module.tx_cadabra_productadministration.settings.numbers.decimalSeparator}
+            thousandsSaperator = {$module.tx_cadabra_productadministration.settings.numbers.thousandsSeparator}
+        }
     }
 }
 

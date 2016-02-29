@@ -60,6 +60,17 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $priceInfluencer;
 
     /**
+     * @var array
+     */
+    protected $settings;
+
+    /**
+     * @inject
+     * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
+     */
+    protected $configurationManager;
+
+    /**
      * The constructor
      */
     public function __construct()
@@ -72,6 +83,11 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function initializeObject()
     {
+        $configuration = $this->configurationManager->getConfiguration(
+            \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
+        );
+        $this->settings = $configuration['settings'];
+
         $this->features = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->priceInfluencer = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->information = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -204,4 +220,54 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->priceInfluencer->detach($priceInfluencer);
     }
+
+    /**
+     * Returns price based on the base price and all related price influencer
+     *
+     * @return string
+     */
+    public function getNetPrice()
+    {
+        $basePrice =  $this->product->getBasePrice();
+        $newPrice = $basePrice;
+        $priceInfluencer = \Abra\Cadabra\Service\PriceInfluencerService::collectPriceInfluencerFromArticle($this);
+
+        /** @var \Abra\Cadabra\Domain\Model\PriceInfluencer\PriceInfluencerInterface $influencer */
+        foreach($priceInfluencer as $influencer) {
+            $newPrice = $influencer->calculatePrice($newPrice);
+        }
+
+        return $this->numberFormat($newPrice);
+    }
+
+    /**
+     * Returns price including tax
+     *
+     * @return string
+     */
+    public function getGrossPrice()
+    {
+        $netPrice = $this->getNetPrice() + (($this->getProduct()->getTaxRate() / 100) * $this->getNetPrice());
+
+        return $this->numberFormat($netPrice);
+    }
+
+    /**
+     * Format number based on TS settings
+     *
+     * @param float $price
+     * @param integer $decimals
+     *
+     * @return string
+     */
+    protected function numberFormat($price, $decimals = 2)
+    {
+        return number_format(
+            $price,
+            $decimals,
+            $this->settings['numbers']['decimalSeparator'],
+            $this->settings['numbers']['thousandsSeparator']
+        );
+    }
+
 }

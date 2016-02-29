@@ -53,4 +53,17 @@ class RelativePriceInfluencer extends AbstractPriceInfluencer implements PriceIn
         $this->relativeAmount = $relativeAmount;
     }
 
+    /**
+     * @param float $basePrice
+     * @return float
+     */
+    public function calculatePrice($basePrice)
+    {
+        if ($this->discount) {
+            return $basePrice / 100 * (100 - (int)$this->getRelativeAmount());
+        }
+
+        return $basePrice + ($this->getRelativeAmount() / 100) * $basePrice;
+    }
+
 }

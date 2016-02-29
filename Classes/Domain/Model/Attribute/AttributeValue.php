@@ -39,6 +39,27 @@ class AttributeValue extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $value;
 
     /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer>
+     */
+    protected $priceInfluencer;
+
+    /**
+     * The constructor
+     */
+    public function __construct()
+    {
+        $this->initializeObject();
+    }
+
+    /**
+     * Initialize objects
+     */
+    public function initializeObject()
+    {
+        $this->priceInfluencer = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
+
+    /**
      * Returns the value
      *
      * @return string
@@ -58,5 +79,36 @@ class AttributeValue extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->value = $value;
     }
 
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer>
+     */
+    public function getPriceInfluencer()
+    {
+        return $this->priceInfluencer;
+    }
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer> $priceInfluencer
+     */
+    public function setPriceInfluencer($priceInfluencer)
+    {
+        $this->priceInfluencer = $priceInfluencer;
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer $priceInfluencer
+     */
+    public function addPriceInfluencer($priceInfluencer)
+    {
+        $this->priceInfluencer->attach($priceInfluencer);
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\PriceInfluencer\AbstractPriceInfluencer $priceInfluencer
+     */
+    public function removePriceInfluencer($priceInfluencer)
+    {
+        $this->priceInfluencer->detach($priceInfluencer);
+    }
 
 }

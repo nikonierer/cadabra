@@ -17,5 +17,10 @@ module.tx_cadabra_productadministration {
         LLL {
             productadministration = LLL:EXT:cadabra/Resources/Private/Language/locallang_productadministration.xlf
         }
+
+        numbers {
+            decimalSeparator = .
+            thousandsSeparator = ,
+        }
     }
 }

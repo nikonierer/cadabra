@@ -31,5 +31,10 @@ namespace Abra\Cadabra\Domain\Model\PriceInfluencer;
  */
 interface PriceInfluencerInterface
 {
+    /**
+     * @param float $basePrice
+     * @return float
+     */
+    public function calculatePrice($basePrice);
 
 }

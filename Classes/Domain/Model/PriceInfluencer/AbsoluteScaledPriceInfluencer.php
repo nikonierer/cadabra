@@ -52,4 +52,17 @@ class AbsoluteScaledPriceInfluencer extends AbstractScaledPriceInfluencer implem
         $this->absoluteAmount = $absoluteAmount;
     }
 
+    /**
+     * @param float $basePrice
+     * @return float
+     */
+    public function calculatePrice($basePrice)
+    {
+        /**
+         * @TODO: Needs to be implemented
+         */
+
+        return $basePrice;
+    }
+
 }

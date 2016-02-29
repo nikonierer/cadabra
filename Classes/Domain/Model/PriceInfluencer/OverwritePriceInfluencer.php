@@ -52,4 +52,13 @@ class OverwritePriceInfluencer extends AbstractPriceInfluencer implements PriceI
     {
         $this->overwritePrice = $overwritePrice;
     }
+
+    /**
+     * @param float $basePrice
+     * @return float
+     */
+    public function calculatePrice($basePrice)
+    {
+        return $this->getOverwritePrice();
+    }
 }

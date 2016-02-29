@@ -51,4 +51,17 @@ class OverwriteScaledPriceInfluencer extends AbstractScaledPriceInfluencer imple
     {
         $this->overwritePrice = $overwritePrice;
     }
+
+    /**
+     * @param float $basePrice
+     * @return float
+     */
+    public function calculatePrice($basePrice)
+    {
+        /**
+         * @TODO: Needs to be implemented
+         */
+
+        return $basePrice;
+    }
 }
