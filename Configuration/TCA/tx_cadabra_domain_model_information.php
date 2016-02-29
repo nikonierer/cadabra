@@ -8,6 +8,7 @@ return array(
         'type' => 'record_type',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
+        'requestUpdate' => 'record_type',
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => true,
         'versioningWS' => 2,
@@ -150,7 +151,8 @@ return array(
                 'type' => 'text',
                 'cols' => '40',
                 'rows' => '15'
-            )
+            ),
+            'defaultExtras' => 'richtext[]'
         ),
         'items' => array(
             'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.items',
