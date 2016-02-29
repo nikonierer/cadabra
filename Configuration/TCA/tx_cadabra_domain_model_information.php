@@ -8,6 +8,7 @@ return array(
         'type' => 'record_type',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
+        'requestUpdate' => 'record_type',
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => true,
         'versioningWS' => 2,
