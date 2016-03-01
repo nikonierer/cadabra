@@ -60,6 +60,11 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $priceInfluencer;
 
     /**
+     * @var boolean
+     */
+    protected $orderable;
+
+    /**
      * @var array
      */
     protected $settings;
@@ -219,6 +224,22 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function removePriceInfluencer($priceInfluencer)
     {
         $this->priceInfluencer->detach($priceInfluencer);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isOrderable()
+    {
+        return $this->orderable;
+    }
+
+    /**
+     * @param boolean $orderable
+     */
+    public function setOrderable($orderable)
+    {
+        $this->orderable = $orderable;
     }
 
     /**

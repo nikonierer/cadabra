@@ -79,6 +79,7 @@ CREATE TABLE tx_cadabra_domain_model_article (
 	features int(11) DEFAULT '0' NOT NULL,
 	information int(11) DEFAULT '0' NOT NULL,
 	price_influencer int(11) DEFAULT '0' NOT NULL,
+	orderable tinyint(1) DEFAULT '1' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
