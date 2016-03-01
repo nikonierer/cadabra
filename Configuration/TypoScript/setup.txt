@@ -163,6 +163,10 @@ config.tx_extbase.persistence.classes {
             recordType = Abra\Cadabra\Domain\Model\PriceInfluencer\OverwriteScaledPriceInfluencer
         }
     }
-
-
+    Abra\Cadabra\Domain\Model\Category {
+        mapping {
+            tableName = sys_category
+            recordType = Abra\Cadabra\Domain\Model\Category
+        }
+    }
 }
