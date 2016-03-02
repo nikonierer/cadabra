@@ -168,4 +168,10 @@ config.tx_extbase.persistence.classes {
             tableName = sys_category
         }
     }
+
+    Abra\Cadabra\Domain\Model\FileReference {
+        mapping {
+            tableName = sys_file_reference
+        }
+    }
 }
