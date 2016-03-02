@@ -143,6 +143,9 @@
             <trans-unit id="attribute_value.price_influencer">
                 <source>Price influencer</source>
             </trans-unit>
+            <trans-unit id="attribute.price_influencer.basedOn_add">
+                <source>Add Price influencer</source>
+            </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_article">
                 <source>Article</source>
@@ -168,7 +171,9 @@
            <trans-unit id="article.orderable">
                 <source>Orderable?</source>
             </trans-unit>
-
+            <trans-unit id="article.price_influencer.basedOn_add">
+                <source>Add Price influencer</source>
+            </trans-unit>
 
             <trans-unit id="tx_cadabra_domain_model_article_feature">
                 <source>Article feature</source>
