@@ -172,6 +172,10 @@ return array(
                 'maxitems' => 9999,
             ),
         ),
+        'files' => array(
+            'label'  => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.files',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('files')
+            ),
         'products' => array(
             'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:information.products',
             'config' => array(
