@@ -2,7 +2,9 @@
 return array(
     'ctrl' => array(
         'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_price_influencer',
-        'label' => 'uid',
+        'label' => 'absolute_amount',
+        'label_alt' => 'relative_amount,overwrite_price',
+        'label_alt_force' => 1,
         'type'  => 'record_type',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
