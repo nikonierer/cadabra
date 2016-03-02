@@ -166,7 +166,12 @@ config.tx_extbase.persistence.classes {
     Abra\Cadabra\Domain\Model\Category {
         mapping {
             tableName = sys_category
-            recordType = Abra\Cadabra\Domain\Model\Category
+        }
+    }
+
+    Abra\Cadabra\Domain\Model\FileReference {
+        mapping {
+            tableName = sys_file_reference
         }
     }
 }

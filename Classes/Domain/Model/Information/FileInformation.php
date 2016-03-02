@@ -31,6 +31,49 @@ namespace Abra\Cadabra\Domain\Model\Information;
  */
 class FileInformation extends AbstractInformation
 {
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\FileReference>
+     */
+    protected $files;
+
+
+    /**
+     * The constructor
+     */
+    public function __construct()
+    {
+        $this->initializeObject();
+    }
+
+    /**
+     * Initialize objects
+     */
+    public function initializeObject()
+    {
+        $this->files = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
+
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getFiles()
+    {
+
+        return $this->files;
+    }
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $files
+     */
+    public function setFiles($files)
+    {
+        $this->files = $files;
+    }
+
+    /**
+     *
+     */
     public function render()
     {
     }
