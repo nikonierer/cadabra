@@ -1,4 +1,4 @@
-module.tx_cadabra_productadministration {
+module.tx_cadabra {
     view {
         # cat=module.tx_cadabra_productadministration/file; type=string; label=Path to template root (BE)
         templateRootPath = EXT:cadabra/Resources/Private/Backend/Templates/
@@ -20,6 +20,10 @@ module.tx_cadabra_productadministration {
         numbers {
             decimalSeparator = .
             thousandsSeparator = ,
+        }
+
+        frontendUser {
+            temporaryFrontendUserGroupId = 2
         }
     }
 }

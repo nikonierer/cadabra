@@ -768,7 +768,7 @@ CREATE TABLE tx_cadabra_domain_model_orderingposition (
 );
 
 #
-# Table structure for table 'tx_cadabra_domain_model_basketentry'
+# Table structure for table 'fe_users'
 #
 CREATE TABLE tx_cadabra_domain_model_basketentry (
 
@@ -802,4 +802,6 @@ CREATE TABLE tx_cadabra_domain_model_basketentry (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
  KEY language (l10n_parent,sys_language_uid)
 
+CREATE TABLE fe_users (
+	tx_cadabra_temporary_user tinyint(1) DEFAULT '0' NOT NULL
 );

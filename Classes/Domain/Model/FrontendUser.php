@@ -1,11 +1,12 @@
 <?php
-namespace Abra\Cadabra\Controller;
+namespace Abra\Cadabra\Domain\Model;
+
 
     /***************************************************************
      *
      *  Copyright notice
      *
-     *  (c) 18.02.2016  Michael <michael.blunck@phth.de>, PHTH
+     *  (c) 2016 Marcel Wieser <typo3dev@marcel-wieser.de>
      *
      *  All rights reserved
      *
@@ -24,33 +25,41 @@ namespace Abra\Cadabra\Controller;
      *  GNU General Public License for more details.
      *
      *  This copyright notice MUST APPEAR in all copies of the script!
-     *  Created by PhpStorm.
-     ******************************************************************/
+     ***************************************************************/
 
 /**
- * Class ActionController
- * @package Abra\Cadabra\Controller
+ * Frontend user
  */
-class ActionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class FrontendUser extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 {
     /**
-     * @var \Abra\Cadabra\Service\FrontendUserService
-     * @inject
+     * @var boolean
      */
-    protected $frontendUserService;
+    protected $temporaryUser;
 
     /**
-     * @var \Abra\Cadabra\Domain\Model\FrontendUser
+     * @return boolean
      */
-    protected $frontendUser;
-
-    /**
-     *
-     */
-    public function initializeAction()
+    public function getTemporaryUser()
     {
-        parent::initializeAction();
-
-        $this->frontendUser = $this->frontendUserService->create();
+        return $this->temporaryUser;
     }
+
+    /**
+     * @return boolean
+     */
+    public function isTemporaryUser()
+    {
+        return $this->temporaryUser;
+    }
+
+    /**
+     * @param boolean $temporaryUser
+     */
+    public function setTemporaryUser($temporaryUser)
+    {
+        $this->temporaryUser = $temporaryUser;
+    }
+
+
 }

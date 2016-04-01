@@ -35,6 +35,12 @@ class ProductController extends ActionController
 {
 
     /**
+     * @var \Abra\Cadabra\Service\FrontendUserService
+     * @inject
+     */
+    protected $frontendUserService;
+
+    /**
      * ProductRepository
      *
      * @var \Abra\Cadabra\Domain\Repository\ProductRepository

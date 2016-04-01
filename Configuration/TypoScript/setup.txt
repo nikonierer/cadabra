@@ -1,5 +1,5 @@
 # Module configuration
-module.tx_cadabra_web_cadabraproductadministration {
+module.tx_cadabra {
     persistence {
         storagePid = {$module.tx_cadabra_productadministration.persistence.storagePid}
     }
@@ -18,10 +18,13 @@ module.tx_cadabra_web_cadabraproductadministration {
         numbers {
             decimalSeparator = {$module.tx_cadabra_productadministration.settings.numbers.decimalSeparator}
             thousandsSaperator = {$module.tx_cadabra_productadministration.settings.numbers.thousandsSeparator}
+        frontendUser {
+            temporaryFrontendUserGroupId = {$module.tx_cadabra.settings.frontendUser.temporaryFrontendUserGroupId}
         }
     }
 }
 
+plugin.tx_cadabra.settings < module.tx_cadabra.settings
 
 config.tx_extbase.persistence.classes {
     Abra\Cadabra\Domain\Model\Attribute\AttributeValue {
@@ -172,6 +175,42 @@ config.tx_extbase.persistence.classes {
     Abra\Cadabra\Domain\Model\FileReference {
         mapping {
             tableName = sys_file_reference
+        }
+    }
+
+    TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
+        subclasses {
+            Tx_Extbase_Domain_Model_FrontendUser = Abra\Cadabra\Domain\Model\FrontendUser
+        }
+    }
+
+    Abra\Cadabra\Domain\Model\FrontendUser {
+        mapping {
+            tableName = fe_users
+            recordType = Tx_Extbase_Domain_Model_FrontendUser
+            columns {
+                username.mapOnProperty = username
+                password.mapOnProperty = password
+                usergroup.mapOnProperty = usergroup
+                name.mapOnProperty = name
+                first_name.mapOnProperty = firstName
+                middle_name.mapOnProperty = middleName
+                last_name.mapOnProperty = lastName
+                address.mapOnProperty = address
+                telephone.mapOnProperty = telephone
+                fax.mapOnProperty = fax
+                email.mapOnProperty = email
+                lockToDomain.mapOnProperty = lockToDomain
+                title.mapOnProperty = title
+                zip.mapOnProperty = zip
+                city.mapOnProperty = city
+                country.mapOnProperty = country
+                www.mapOnProperty = www
+                company.mapOnProperty = company
+                image.mapOnProperty = image
+                lastlogin.mapOnProperty = lastlogin
+                tx_cadabra_temporary_user.mapOnProperty = temporaryUser
+            }
         }
     }
 }
