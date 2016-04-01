@@ -5,19 +5,21 @@ module.tx_cadabra {
     }
 
     view {
-        templateRootPaths.0 = {$module.tx_cadabra_productadministration.view.templateRootPath}
-        partialRootPaths.0 = {$module.tx_cadabra_productadministration.view.partialRootPath}
-        layoutRootPaths.0 = {$module.tx_cadabra_productadministration.view.layoutRootPath}
+        templateRootPaths.0 = {$module.tx_cadabra.view.templateRootPath}
+        partialRootPaths.0 = {$module.tx_cadabra.view.partialRootPath}
+        layoutRootPaths.0 = {$module.tx_cadabra.view.layoutRootPath}
     }
-    settings{
-        # cat=module.tx_cadabra_productadministration//a; type=string; label=Default storage PID
+    settings {
+        # cat=module.tx_cadabra//a; type=string; label=Default storage PID
         LLL {
-            productadministration = {$module.tx_cadabra_productadministration.settings.LLL.productadministration}
+            productadministration = {$module.tx_cadabra.settings.LLL.productadministration}
         }
 
         numbers {
-            decimalSeparator = {$module.tx_cadabra_productadministration.settings.numbers.decimalSeparator}
-            thousandsSaperator = {$module.tx_cadabra_productadministration.settings.numbers.thousandsSeparator}
+            decimalSeparator = {$module.tx_cadabra.settings.numbers.decimalSeparator}
+            thousandsSaperator = {$module.tx_cadabra.settings.numbers.thousandsSeparator}
+        }
+
         frontendUser {
             temporaryFrontendUserGroupId = {$module.tx_cadabra.settings.frontendUser.temporaryFrontendUserGroupId}
         }

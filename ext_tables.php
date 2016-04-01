@@ -25,12 +25,12 @@ if (TYPO3_MODE === 'BE') {
 
 }
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    $_EXTKEY,
+    'Abra.' . $_EXTKEY,
     'Article',
     'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_article'
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    $_EXTKEY,
+    'Abra.' . $_EXTKEY,
     'Product',
     'LLL:EXT:cadabra/Resources/Private/Language/locallang_ce.xlf:cadabra_product'
 );
