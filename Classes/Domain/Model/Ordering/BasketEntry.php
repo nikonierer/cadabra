@@ -6,7 +6,7 @@ namespace Abra\Cadabra\Domain\Model\Ordering;
      *
      *  Copyright notice
      *
-     *  (c) 2015 Marcel Wieser <typo3dev@marcel-wieser.de>
+     *  (c) 2016 Marcel Wieser <typo3dev@marcel-wieser.de>
      *
      *  All rights reserved
      *
@@ -30,8 +30,7 @@ namespace Abra\Cadabra\Domain\Model\Ordering;
 /**
  * BasketEntry
  */
-class BasketEntry extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class BasketEntry extends \Abra\Cadabra\Domain\Model\Ordering\OrderableArticle
 {
-
 
 }

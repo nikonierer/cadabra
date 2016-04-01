@@ -1,78 +1,50 @@
 <?php
-namespace Abra\Cadabra\Domain\Model\Ordering;
-
+namespace Abra\Cadabra\Domain\Repository;
 
     /***************************************************************
-     *
      *  Copyright notice
-     *
      *  (c) 2016 Marcel Wieser <typo3dev@marcel-wieser.de>
      *
      *  All rights reserved
-     *
      *  This script is part of the TYPO3 project. The TYPO3 project is
      *  free software; you can redistribute it and/or modify
      *  it under the terms of the GNU General Public License as published by
      *  the Free Software Foundation; either version 3 of the License, or
      *  (at your option) any later version.
-     *
      *  The GNU General Public License can be found at
      *  http://www.gnu.org/copyleft/gpl.html.
-     *
      *  This script is distributed in the hope that it will be useful,
      *  but WITHOUT ANY WARRANTY; without even the implied warranty of
      *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
      *  GNU General Public License for more details.
-     *
      *  This copyright notice MUST APPEAR in all copies of the script!
      ***************************************************************/
 
 /**
- * OrderableArticle
+ * The repository for baskets
  */
-class OrderableArticle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class BasketRepository extends AbstractRepository
 {
 
     /**
-     * @var \Abra\Cadabra\Domain\Model\Article
+     * @param \Abra\Cadabra\Domain\Model\FrontendUser $frontendUser
+     * @param string $type
+     *
+     * @return \Abra\Cadabra\Domain\Model\Basket
      */
-    protected $article;
-
-    /**
-     * @var integer
-     */
-    protected $amount;
-
-    /**
-     * @return \Abra\Cadabra\Domain\Model\Article
-     */
-    public function getArticle()
+    public function findByFrontendUserAndType($frontendUser, $type)
     {
-        return $this->article;
-    }
+        $query = $this->createQuery();
+        $query->matching(
+            $query->logicalAnd(
+                array(
+                    $query->equals('frontendUser', $frontendUser->getUid()),
+                    $query->equals('type', $type)
+                )
+            )
+        );
 
-    /**
-     * @param \Abra\Cadabra\Domain\Model\Article $article
-     */
-    public function setArticle($article)
-    {
-        $this->article = $article;
-    }
-
-    /**
-     * @return int
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    /**
-     * @param int $amount
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
+        return $query->execute()->getFirst();
     }
 
 }

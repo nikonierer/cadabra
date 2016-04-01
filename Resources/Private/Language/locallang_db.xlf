@@ -261,9 +261,20 @@
             <trans-unit id="tx_cadabra_domain_model_paymentmethod">
                 <source>Payment Method</source>
             </trans-unit>
-            <trans-unit id="tx_cadabra_domain_model_orderablearticle">
+
+            <trans-unit id="tx_cadabra_domain_model_orderable_article">
                 <source>Orderable Article</source>
             </trans-unit>
+            <trans-unit id="orderable_article.baskets">
+                <source>Baskets</source>
+            </trans-unit>
+            <trans-unit id="orderable_article.amount">
+                <source>Amount</source>
+            </trans-unit>
+            <trans-unit id="orderable_article.article">
+                <source>Article</source>
+            </trans-unit>
+
             <trans-unit id="tx_cadabra_domain_model_orderingposition">
                 <source>Ordering Position</source>
             </trans-unit>

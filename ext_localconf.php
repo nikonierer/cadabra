@@ -29,3 +29,16 @@ if (!defined('TYPO3_MODE')) {
     ),
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Abra.' . $_EXTKEY,
+    'Basket',
+    array(
+        'Basket' => 'show, addArticle',
+    ),
+    // non-cacheable actions
+    array(
+        'Basket' => 'show, addArticle',
+    ),
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);

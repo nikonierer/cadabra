@@ -17,6 +17,9 @@
             <th>
                 <f:translate key="article.information"/>
             </th>
+            <th>
+                Add to basket
+            </th>
         </tr>
         <f:for each="{articles}" as="article">
             <tr>
@@ -37,6 +40,9 @@
                             <f:format.raw>{information.informationGroup.name}:{information.content}</f:format.raw>
                         </f:for>
                     </f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="addArticle" controller="Basket"  arguments="{article: article}">Add article</f:link.action>
                 </td>
             </tr>
         </f:for>

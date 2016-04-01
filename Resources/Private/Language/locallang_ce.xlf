@@ -16,6 +16,12 @@
             <trans-unit id="cadabra_product.description">
                 <source>Products Frontend</source>
             </trans-unit>
+            <trans-unit id="cadabra_basket">
+                <source>Basket</source>
+            </trans-unit>
+            <trans-unit id="cadabra_basket.description">
+                <source>Basket frontend</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

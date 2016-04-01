@@ -32,6 +32,91 @@ namespace Abra\Cadabra\Domain\Model;
  */
 class Basket extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+    /**
+     * @var string
+     */
+    protected $type;
 
+    /**
+     * @var \Abra\Cadabra\Domain\Model\FrontendUser
+     */
+    protected $frontendUser;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\Ordering\OrderableArticle>
+     */
+    protected $positions;
+
+    /**
+     * Initialize objects
+     */
+    public function initializeObject()
+    {
+        $this->positions = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return \Abra\Cadabra\Domain\Model\FrontendUser
+     */
+    public function getFrontendUser()
+    {
+        return $this->frontendUser;
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\FrontendUser $frontendUser
+     */
+    public function setFrontendUser($frontendUser)
+    {
+        $this->frontendUser = $frontendUser;
+    }
+
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\Ordering\OrderableArticle>
+     */
+    public function getPositions()
+    {
+        return $this->positions;
+    }
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Abra\Cadabra\Domain\Model\Ordering\OrderableArticle> $positions
+     */
+    public function setPositions($positions)
+    {
+        $this->positions = $positions;
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\Ordering\OrderableArticle $position
+     */
+    public function addPosition($position)
+    {
+        $this->positions->attach($position);
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\Ordering\OrderableArticle $position
+     */
+    public function removePosition($position)
+    {
+        $this->positions->detach($position);
+    }
 
 }

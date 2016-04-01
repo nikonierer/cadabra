@@ -1,8 +1,9 @@
 <?php
 return array(
     'ctrl' => array(
-        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_basketentry',
+        'title' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:tx_cadabra_domain_model_orderable_article',
         'label' => 'uid',
+        'type' => 'record_type',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -19,7 +20,7 @@ return array(
             'endtime' => 'endtime',
         ),
         'searchFields' => '',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_basketentry.gif'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cadabra') . 'Resources/Public/Icons/tx_cadabra_domain_model_orderable_article.gif'
     ),
     'interface' => array(
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ',
@@ -56,8 +57,8 @@ return array(
                 'items' => array(
                     array('', 0),
                 ),
-                'foreign_table' => 'tx_cadabra_domain_model_basketentry',
-                'foreign_table_where' => 'AND tx_cadabra_domain_model_basketentry.pid=###CURRENT_PID### AND tx_cadabra_domain_model_basketentry.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_cadabra_domain_model_orderable_article',
+                'foreign_table_where' => 'AND tx_cadabra_domain_model_orderable_article.pid=###CURRENT_PID### AND tx_cadabra_domain_model_orderable_article.sys_language_uid IN (-1,0)',
             ),
         ),
         'l10n_diffsource' => array(
@@ -111,6 +112,56 @@ return array(
                     'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
                 ),
             ),
+        ),
+        'record_type' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:orderable_article.record_type',
+            'config' => array(
+                'type' => 'select',
+                'items' => array(
+                    array(
+                        'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:orderable_article.record_type.basket_entry',
+                        'Abra\\Cadabra\\Domain\\Model\\Ordering\\BasketEntry'
+                    ),
+                    array(
+                        'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:orderable_article.record_type.ordering_position',
+                        'Abra\\Cadabra\\Domain\\Model\\Ordering\\OrderingPosition'
+                    ),
+                ),
+                'default' => 'Abra\\Cadabra\\Domain\\Model\\Ordering\\BasketEntry',
+            ),
+        ),
+
+        'article' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:orderable_article.article',
+            'config' => array(
+                'type' => 'inline',
+                'foreign_table' => 'tx_cadabra_domain_model_article',
+                'foreign_field' => 'article',
+                'size' => 10,
+                'autoSizeMax' => 50,
+                'maxitems' => 9999,
+            ),
+        ),
+
+        'basket' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:orderable_article.basket',
+            'config' => array(
+                'type' => 'inline',
+                'foreign_table' => 'tx_cadabra_domain_model_basket',
+                'foreign_field' => 'positions',
+                'size' => 10,
+                'autoSizeMax' => 50,
+                'maxitems' => 9999,
+            ),
+        ),
+
+        'amount' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:orderable_article.amount',
+            'config' => array(
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'integer'
+            )
         ),
 
     ),

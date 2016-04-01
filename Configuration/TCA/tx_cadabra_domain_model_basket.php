@@ -113,5 +113,35 @@ return array(
             ),
         ),
 
+        'type' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:basket.type',
+            'config' => array(
+                'type' => 'input',
+                'size' => 30,
+                'max' => 255,
+            )
+        ),
+        'frontend_user' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:basket.frontend_user',
+            'config' => array(
+                'type' => 'select',
+                'foreign_table' => 'fe_users',
+                'size' => 1,
+                'minitems' => 1,
+                'maxitems' => 1,
+            )
+        ),
+
+        'positions' => array(
+            'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:basket.positions',
+            'config' => array(
+                'type' => 'select',
+                'foreign_table' => 'tx_cadabra_domain_model_orderable_article',
+                'size' => 10,
+                'minitems' => 0,
+                'maxitems' => 9999,
+            )
+        ),
+
     ),
 );

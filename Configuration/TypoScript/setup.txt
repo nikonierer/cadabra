@@ -177,6 +177,30 @@ config.tx_extbase.persistence.classes {
     Abra\Cadabra\Domain\Model\FileReference {
         mapping {
             tableName = sys_file_reference
+
+        }
+    }
+
+    Abra\Cadabra\Domain\Model\Ordering\OrderableArticle {
+        mapping {
+            tableName = tx_cadabra_domain_model_orderable_article
+            recordType = Abra\Cadabra\Domain\Model\Ordering\OrderableArticle
+        }
+        subclasses {
+            Abra\Cadabra\Domain\Model\Ordering\BasketEntry = Abra\Cadabra\Domain\Model\Ordering\BasketEntry
+            Abra\Cadabra\Domain\Model\Ordering\OrderingPosition = Abra\Cadabra\Domain\Model\Ordering\OrderingPosition
+        }
+    }
+    Abra\Cadabra\Domain\Model\Ordering\BasketEntry {
+        mapping {
+            tableName = tx_cadabra_domain_model_orderable_article
+            recordType = Abra\Cadabra\Domain\Model\Ordering\BasketEntry
+        }
+    }
+    Abra\Cadabra\Domain\Model\Ordering\OrderingPosition {
+        mapping {
+            tableName = tx_cadabra_domain_model_orderable_article
+            recordType = Abra\Cadabra\Domain\Model\Ordering\OrderingPosition
         }
     }
 
