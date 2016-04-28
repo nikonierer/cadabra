@@ -34,11 +34,11 @@ if (!defined('TYPO3_MODE')) {
     'Abra.' . $_EXTKEY,
     'Basket',
     array(
-        'Basket' => 'show, addArticle',
+        'Basket' => 'show, widget, addArticle',
     ),
     // non-cacheable actions
     array(
-        'Basket' => 'show, addArticle',
+        'Basket' => 'show, widget, addArticle',
     ),
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

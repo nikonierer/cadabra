@@ -61,6 +61,8 @@ class BasketController extends ActionController
      */
     public function initializeAction()
     {
+
+
         parent::initializeAction();
 
         $basket = $this->basketRepository->findByFrontendUserAndType($this->frontendUser, self::$mainBasketTypeName);
@@ -97,14 +99,15 @@ class BasketController extends ActionController
         $basketEntry = new \Abra\Cadabra\Domain\Model\Ordering\BasketEntry();
         $basketEntry->setArticle($article);
         $basketEntry->setAmount($amount);
+        $basketEntry->setBasket($this->basket);
 
         $this->basket->addPosition($basketEntry);
 
         $this->basketRepository->update($this->basket);
         $this->persistenceManager->persistAll();
 
-
-        $this->redirect('show');
+        $pageId = ($this->settings['basket']['basketPageId']) ? $this->settings['basket']['basketPageId'] : null;
+        $this->redirect('show', 'Basket', 'cadabra', null, $pageId);
     }
 
     /**
@@ -112,5 +115,14 @@ class BasketController extends ActionController
      */
     public function showAction()
     {
+        $this->view->assign('basket', $this->basket);
+    }
+
+    /**
+     * @return void
+     */
+    public function widgetAction()
+    {
+        $this->view->assign('basket', $this->basket);
     }
 }

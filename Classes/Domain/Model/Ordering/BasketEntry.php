@@ -32,5 +32,25 @@ namespace Abra\Cadabra\Domain\Model\Ordering;
  */
 class BasketEntry extends \Abra\Cadabra\Domain\Model\Ordering\OrderableArticle
 {
+    /**
+     * @var \Abra\Cadabra\Domain\Model\Basket
+     */
+    protected $basket;
+
+    /**
+     * @return \Abra\Cadabra\Domain\Model\Basket
+     */
+    public function getBasket()
+    {
+        return $this->basket;
+    }
+
+    /**
+     * @param \Abra\Cadabra\Domain\Model\Basket $basket
+     */
+    public function setBasket($basket)
+    {
+        $this->basket = $basket;
+    }
 
 }

@@ -1,0 +1,9 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	  xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
+<f:layout name="Frontend"/>
+<f:section name="Main">
+	<h3>Basket widget</h3>
+	<p>Entries: {basket.totalAmount}</p>
+	<f:link.action action="show" controller="Basket" pageUid="{settings.basket.basketPageId}">Show basket</f:link.action>
+</f:section>
+</html>

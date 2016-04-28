@@ -23,6 +23,17 @@ module.tx_cadabra {
         frontendUser {
             temporaryFrontendUserGroupId = {$module.tx_cadabra.settings.frontendUser.temporaryFrontendUserGroupId}
         }
+
+        basket {
+            basketPageId = 9
+            allowGuestCheckout = false
+        }
+
+        checkout {
+            showOverview = true
+            checkoutPageId = 8
+        }
+
     }
 }
 

@@ -2,6 +2,36 @@
 	  xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/Fluid/ViewHelpers">
 <f:layout name="Frontend" />
 <f:section name="Main">
+	<h1>Basket</h1>
 
+	<f:if condition="{basket.positions}">
+		<table>
+			<tr>
+				<th>Product</th>
+				<th>Amount</th>
+			</tr>
+			<f:for each="{basket.positions}" as="position">
+				<tr>
+					<td>{position.article.product.title}</td>
+					<td>{position.amount}</td>
+				</tr>
+			</f:for>
+		</table>
+
+		<f:if condition="{settings.checkout.showOverview}">
+			<f:then>
+				<f:link.action action="overview"
+							   controller="Checkout"
+							   pluginName="tx_cadabra_checkout"
+							   pageUid="{settings.checkout.checkoutPageId}">Checkout</f:link.action>
+			</f:then>
+			<f:else>
+				<f:link.action action="selectAddress"
+							   controller="Checkout"
+							   pluginName="tx_cadabra_checkout"
+							   pageUid="{settings.checkout.checkoutPageId}">Checkout</f:link.action>
+			</f:else>
+		</f:if>
+	</f:if>
 </f:section>
 </html>

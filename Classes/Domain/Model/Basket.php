@@ -119,4 +119,20 @@ class Basket extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->positions->detach($position);
     }
 
+    /**
+     * Returns the total amount of articles
+     *
+     * @return integer
+     */
+    public function getTotalAmount()
+    {
+        $totalAmount = 0;
+        /** @var \Abra\Cadabra\Domain\Model\Ordering\BasketEntry $position */
+        foreach($this->getPositions() as $position) {
+            $totalAmount += $position->getAmount();
+        }
+
+        return $totalAmount;
+    }
+
 }

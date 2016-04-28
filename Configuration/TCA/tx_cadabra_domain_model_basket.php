@@ -135,8 +135,9 @@ return array(
         'positions' => array(
             'label' => 'LLL:EXT:cadabra/Resources/Private/Language/locallang_db.xlf:basket.positions',
             'config' => array(
-                'type' => 'select',
+                'type' => 'inline',
                 'foreign_table' => 'tx_cadabra_domain_model_orderable_article',
+                'foreign_field' => 'basket',
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 9999,
